@@ -84,6 +84,25 @@ class OrdersController extends Controller
           return redirect('/orders/orders');
      }
 
+
+     public function status()
+     {
+          $model = new Orders;
+          $data=$model->list();
+
+          return view('orders/status', ['data'=>$data]);
+     }
+
+     public function status_del(Request $request)
+     {
+          $id = $request->input('id');
+
+          $model = new Orders;
+          $model->status_del($id);
+
+          return redirect('/orders/status');
+     }
+
 }
 
 

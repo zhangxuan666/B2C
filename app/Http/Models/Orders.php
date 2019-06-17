@@ -85,6 +85,15 @@ class Orders extends Model
 		return DB::table('cart')->where('cart_user_id', $id)->update($data);
 	}
 
+	public function list(){
+    	return DB::table('orders_static')->get();
+    }
+
+    public function status_del($id)
+    {
+    	return DB::table('orders_static')->where('id', $id)->delete();
+    }
+
 }
 
 ?>
