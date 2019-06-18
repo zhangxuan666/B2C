@@ -102,7 +102,7 @@ Route::get('/warehouse/del','Admin\WarehouseController@del');
 //仓库编辑页面
 Route::get('/warehouse/update','Admin\WarehouseController@update');
 //仓库编辑修改
-<<<<<<< HEAD
+
 Route::post('/warehouse/update_do','Admin\WarehouseController@update_do');
 
 
@@ -152,6 +152,6 @@ Route::post("node/addrolenode","admin\NodeController@addRoleNode");
 
 //rbac控制器
 Route::any("rbac/construct","admin\RbacController@__construct");
-=======
+
 Route::post('/warehouse/update_do','Admin\WarehouseController@update_do');
->>>>>>> 7587568853aa1ab8c1c6c9344a190da7ecd1ce85
+
