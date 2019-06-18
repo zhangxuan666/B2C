@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <base href="/admin/">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>权限管理</title>
+    <link rel="stylesheet" href="css/pintuer.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!--<link rel="stylesheet" href="css/ace.min.css">-->
+    <script src="js/jquery.js"></script>
+    <script src="js/pintuer.js"></script>
+    <script src="js/layer/layer.js"></script>
+</head>
+<body>
+<div class="panel admin-panel">
+    <div class="panel-head"><strong class="icon-reorder"> 权限列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
+    <div class="amounts_style">
+    </div>
+    <form action="{{url('/node/addrolenode')}}" method="post">
+    <table >
+        <thead>
+        <?php foreach($data as $v) {?>
+        <tr>
+            <th><hr><?php echo $v['node_desc']?></th>
+        </tr>
+
+
+        <?php   if(!empty($v['item'])){
+
+        foreach($v['item'] as $item){
+
+        ?>
+        <td><input type="checkbox" name="nodeIds[]" value="<?php echo $item['node_id'];?>"/><?php echo $item['node_desc'];?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <?php
+
+        }
+        }
+        ?>
+        </thead>
+        <?php } ?>
+    </table>
+
+    <tr>
+        <td colspan="3">
+            <input type="hidden" name="_token" value="{{csrf_token()}}">
+            <input type="hidden" name="roleid" value="{{$roleid}}">
+            <input type="submit" class="button bg-main" value="分配权限"/>
+        </td>
+    </tr>
+    </form>
+</div>
+
+<script type="text/javascript">
+
+
+
+
+    //批量删除
+    function DelSelect(){
+        var Checkbox=false;
+        $("input[name='id[]']").each(function(){
+            if (this.checked==true) {
+                Checkbox=true;
+            }
+        });
+        if (Checkbox){
+            var t=confirm("您确认要删除选中的内容吗？");
+            if (t==false) return false;
+            $("#listform").submit();
+        }
+        else{
+            alert("请选择您要删除的内容!");
+            return false;
+        }
+    }
+
+    function Competence_del(obj,id){
+        layer.confirm('确认要删除吗？',function(index){
+            $(obj).parents("tr").remove();
+            layer.msg('已删除!',{icon:1,time:1000});
+        });
+    }
+
+    /*添加管理员*/
+    $('#administrator_add').on('click', function(){
+        layer.open({
+            type: 1,
+            title:'添加管理员',
+            area: ['700px',''],
+            shadeClose: false,
+            content: $('#add_administrator_style'),
+
+        });
+    })
+
+    //字数限制
+    function checkLength(which) {
+        var maxChars = 100; //
+        if(which.value.length > maxChars){
+            layer.open({
+                icon:2,
+                title:'提示框',
+                content:'您输入的字数超过限制!',
+            });
+            // 超过限制的字数了就将 文本框中的内容按规定的字数 截取
+            which.value = which.value.substring(0,maxChars);
+            return false;
+        }else{
+            var curr = maxChars - which.value.length; //250 减去 当前输入的
+            document.getElementById("sy").innerHTML = curr.toString();
+            return true;
+        }
+    };
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
