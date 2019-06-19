@@ -39,7 +39,7 @@
                         </div>
 
 
-<!--                         <div id="vaptchaContainer" style="width: 350px;height: 200px;">
+                       <div id="vaptchaContainer" style="width: 350px;height: 200px;">
                             <div class="vaptcha-init-main">
                                 <div class="vaptcha-init-loading">
                                     <a href="https://www.vaptcha.com" target="_blank">
@@ -48,7 +48,7 @@
                                     <span class="vaptcha-text">Vaptcha启动中...</span>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
 
                     </div>
                     <div style="padding:30px;"><input type="submit" class="button button-block bg-main text-big input-big" value="登录"></div>
@@ -67,7 +67,7 @@
     var str1;
     vaptcha({
         //配置参数
-        vid: '5cfe43a5fc650ead100b19ad', // 验证单元id
+        vid: '5d098bfefc650ec47c9c694a', // 验证单元id
         type: 'embed', // 展现类型 点击式
         container: '#vaptchaContainer' // 按钮容器，可为Element 或者 selector
     }).then(function (vaptchaObj) {
@@ -79,11 +79,11 @@
     })
 
     //判断动画是否验证，验证则登陆 否则不能登陆
-    // function login1(){
-    //     if(str1==1){
-    //         return true;
-    //     }else{
-    //         return false;
-    //     }
-    // }
+    function login1(){
+        if(str1==1){
+            return true;
+        }else{
+            return false;
+        }
+    }
 </script><?php /**PATH E:\jichenghuanjing\PHPTutorial\WWW\Lxgw\resources\views/admin/login/login.blade.php ENDPATH**/ ?>
