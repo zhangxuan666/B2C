@@ -151,7 +151,10 @@ Route::post("node/addrolenode","admin\NodeController@addRoleNode");
 
 
 //rbac控制器
+
 Route::any("rbac/construct","admin\RbacController@__construct");
 
-Route::post('/warehouse/update_do','Admin\WarehouseController@update_do');
+
+
+
 
