@@ -1,0 +1,2 @@
+
+<?php echo $__env->make('layout.public', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\jichenghuanjing\PHPTutorial\WWW\Lxgw\resources\views/index/index.blade.php ENDPATH**/ ?>
