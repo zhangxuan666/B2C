@@ -10,10 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//后台
+Route::get('hou','Admin\GoodsController@index');
+//前台
+Route::get('','Home\IndexController@index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 //张轩
 Route::get('/goods/index','Admin\GoodsController@index');
@@ -153,6 +154,40 @@ Route::post("node/addrolenode","admin\NodeController@addRoleNode");
 //rbac控制器
 
 Route::any("rbac/construct","admin\RbacController@__construct");
+
+// -----------------------------------------------------------------------------------------------------------
+
+
+// 前台
+
+Route::any('/home/index','Home\IndexController@index');
+Route::any('/home/sell','Home\IndexController@sell');
+Route::any('/home/brand','Home\IndexController@brand');
+Route::any('/home/brandlist','Home\IndexController@brandlist');
+Route::any('/home/buycar','Home\IndexController@buycar');
+Route::any('/home/buycar_three','Home\IndexController@buycar_three');
+Route::any('/home/buycar_two','Home\IndexController@buycar_two');
+Route::any('/home/login','Home\IndexController@login');
+Route::any('/home/product','Home\IndexController@product');
+Route::any('/home/category','Home\IndexController@category');
+Route::any('/home/member','Home\IndexController@member');
+Route::any('/home/member_address','Home\IndexController@member_address');
+Route::any('/home/member_cash','Home\IndexController@member_cash');
+Route::any('/home/member_collect','Home\IndexController@member_collect');
+Route::any('/home/member_commission','Home\IndexController@member_commission');
+Route::any('/home/member_links','Home\IndexController@member_links');
+Route::any('/home/member_member','Home\IndexController@member_member');
+Route::any('/home/member_member_list','Home\IndexController@member_member_list');
+Route::any('/home/member_money','Home\IndexController@member_money');
+Route::any('/home/member_money_change','Home\IndexController@member_money_change');
+Route::any('/home/member_money_pay','Home\IndexController@member_money_pay');
+Route::any('/home/member_order','Home\IndexController@member_order');
+Route::any('/home/member_packet','Home\IndexController@member_packet');
+Route::any('/home/member_results','Home\IndexController@member_results');
+Route::any('/home/member_safe','Home\IndexController@member_safe');
+Route::any('/home/member_user','Home\IndexController@member_user');
+Route::any('/home/regist','Home\IndexController@regist');
+Route::any('/home/selldetails','Home\IndexController@selldetails');
 
 
 
