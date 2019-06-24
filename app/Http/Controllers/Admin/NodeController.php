@@ -9,7 +9,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Models\Node;
-use App\Models\Rolenode;
+use App\Http\Models\Rolenode;
 use Illuminate\Http\Request;
 
 class NodeController extends Controller

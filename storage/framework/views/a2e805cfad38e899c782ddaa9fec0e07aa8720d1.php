@@ -36,7 +36,7 @@
           <select class="input" name="parent_id">
             <option value="0">顶级分类</option>
             <?php foreach($list as $key =>$val):?>
-            <option value="<?php echo $val->id?>"><?php echo $val->type_name?></option>
+            <option value="<?php echo $val->id?>">---<?php echo $val->type_name?></option>
             <?php endforeach ?>
           </select>
         </div>

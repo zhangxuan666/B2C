@@ -11,100 +11,102 @@
 |
 */
 //后台
-Route::get('hou','Admin\GoodsController@index');
+Route::get('hou','Admin\LoginController@login');
 //前台
 Route::get('','Home\IndexController@index');
 
 
 //张轩
-Route::get('/goods/index','Admin\GoodsController@index');
-Route::get('/goods/info','Admin\GoodsController@info');
-Route::get('/goods/product_list','Admin\GoodsController@product_list');
-Route::get('/goods/add_product','Admin\GoodsController@add_product');
-Route::get('/goods/cate_1','Admin\GoodsController@cate_1');
-Route::get('/goods/brand_add','Admin\GoodsController@brand_add');
-Route::get('/goods/cateedit_2','Admin\GoodsController@cateedit_2');
-Route::post('/goods/brand_add_do','Admin\GoodsController@brand_add_do');
-Route::post('/goods/brand_del','Admin\GoodsController@brand_del');
-Route::get('/goods/cateedit_1','Admin\GoodsController@cateedit_1');
-Route::post('/goods/type_add','Admin\GoodsController@type_add');
-Route::post('/goods/add_Type_Attribute','Admin\GoodsController@add_Type_Attribute');
-Route::post('/goods/add_sku','Admin\GoodsController@add_sku');
+Route::get('/goods/index','Admin\GoodsController@index')->middleware("login");
+Route::get('/goods/info','Admin\GoodsController@info')->middleware("login");
+Route::get('/goods/product_list','Admin\GoodsController@product_list')->middleware("login");
+Route::get('/goods/add_product','Admin\GoodsController@add_product')->middleware("login");
+Route::get('/goods/cate_1','Admin\GoodsController@cate_1')->middleware("login");
+Route::get('/goods/brand_add','Admin\GoodsController@brand_add')->middleware("login");
+Route::get('/goods/cateedit_2','Admin\GoodsController@cateedit_2')->middleware("login");
+Route::post('/goods/brand_add_do','Admin\GoodsController@brand_add_do')->middleware("login");
+Route::post('/goods/brand_del','Admin\GoodsController@brand_del')->middleware("login");
+Route::get('/goods/cateedit_1','Admin\GoodsController@cateedit_1')->middleware("login");
+Route::post('/goods/type_add','Admin\GoodsController@type_add')->middleware("login");
+Route::post('/goods/add_Type_Attribute','Admin\GoodsController@add_Type_Attribute')->middleware("login");
+Route::post('/goods/add_sku','Admin\GoodsController@add_sku')->middleware("login");
 
 //任鑫乐
-Route::any('/active/one','Admin\ActiveController@one');
-Route::any('/active/oneadd','Admin\ActiveController@oneadd');
-Route::any('/active/add','Admin\ActiveController@add');
-Route::any('/active/oneupdate','Admin\ActiveController@oneupdate');
-Route::any('/active/update','Admin\ActiveController@update');
-Route::any('/active/onedelete','Admin\ActiveController@onedelete');
-Route::any('/active/search','Admin\ActiveController@search');
+Route::any('/active/one','Admin\ActiveController@one')->middleware("login");
+Route::any('/active/oneadd','Admin\ActiveController@oneadd')->middleware("login");
+Route::any('/active/add','Admin\ActiveController@add')->middleware("login");
+Route::any('/active/oneupdate','Admin\ActiveController@oneupdate')->middleware("login");
+Route::any('/active/update','Admin\ActiveController@update')->middleware("login");
+Route::any('/active/onedelete','Admin\ActiveController@onedelete')->middleware("login");
+Route::any('/active/search','Admin\ActiveController@search')->middleware("login");
 //客服中心的路由
-Route::any('/service/list','Admin\ServiceController@list');
-Route::any('/service/show','Admin\ServiceController@show');
-Route::any('/service/update','Admin\ServiceController@update');
-Route::any('/service/ask','Admin\ServiceController@ask');
-Route::any('/service/add','Admin\ServiceController@add');
-Route::any('/service/userask','Admin\ServiceController@userask');
-Route::any('/service/test','Admin\ServiceController@test');
+Route::any('/service/list','Admin\ServiceController@list')->middleware("login");
+Route::any('/service/show','Admin\ServiceController@show')->middleware("login");
+Route::any('/service/update','Admin\ServiceController@update')->middleware("login");
+Route::any('/service/ask','Admin\ServiceController@ask')->middleware("login");
+Route::any('/service/add','Admin\ServiceController@add')->middleware("login");
+Route::any('/service/userask','Admin\ServiceController@userask')->middleware("login");
+Route::any('/service/test','Admin\ServiceController@test')->middleware("login");
  
 
 // 陈鹏飞
 //菜单管理
 
-Route::get('/menu/list','Admin\MenuController@menuList');
-Route::get('/menu/add','Admin\MenuController@menuAdd');
-Route::Any('/menu/doadd','Admin\MenuController@doAdd');
-Route::get('/menu/del','Admin\MenuController@menuDel');
+Route::get('/menu/list','Admin\MenuController@menuList')->middleware("login");
+Route::get('/menu/add','Admin\MenuController@menuAdd')->middleware("login");
+Route::Any('/menu/doadd','Admin\MenuController@doAdd')->middleware("login");
+Route::get('/menu/del','Admin\MenuController@menuDel')->middleware("login");
 
-Route::get('/menu/update','Admin\MenuController@menuUpdate');
-Route::Any('/menu/doupdate','Admin\MenuController@doUpdate');
-Route::Any('/menu/zuoupdate','Admin\MenuController@zuoUpdate');
+Route::get('/menu/update','Admin\MenuController@menuUpdate')->middleware("login");
+Route::Any('/menu/doupdate','Admin\MenuController@doUpdate')->middleware("login");
+Route::Any('/menu/zuoupdate','Admin\MenuController@zuoUpdate')->middleware("login");
 
-Route::get('/menu/submenu','Admin\MenuController@submenu');
+Route::get('/menu/submenu','Admin\MenuController@submenu')->middleware("login");
 
 //商品管理
-Route::get('/goods/list','Admin\GoodsController@goodsList');
-Route::get('/goods/del','Admin\GoodsController@goodsDel');
-Route::any('/goods/add','Admin\GoodsController@goodsAdd');
-Route::any('/goods/doadd','Admin\GoodsController@doAdd');
-Route::any('/goods/update','Admin\GoodsController@update');
-Route::any('/goods/doupdate','Admin\GoodsController@doupdate');
+Route::get('/goods/list','Admin\GoodsController@goodsList')->middleware("login");
+Route::get('/goods/del','Admin\GoodsController@goodsDel')->middleware("login");
+Route::any('/goods/add','Admin\GoodsController@goodsAdd')->middleware("login");
+Route::any('/goods/doadd','Admin\GoodsController@doAdd')->middleware("login");
+Route::any('/goods/update','Admin\GoodsController@update')->middleware("login");
+Route::any('/goods/doupdate','Admin\GoodsController@doupdate')->middleware("login");
 
 
 //闫郑宇
 
 //订单总览
-Route::get('/orders/orders','Admin\OrdersController@orders');
+Route::get('/orders/orders','Admin\OrdersController@orders')->middleware("login");
 //订单详情
-Route::get('/orders/ordersxq','Admin\OrdersController@ordersxq');
+Route::get('/orders/ordersxq','Admin\OrdersController@ordersxq')->middleware("login");
 //订单处理
-Route::get('/orders/deal','Admin\OrdersController@deal');
+Route::get('/orders/deal','Admin\OrdersController@deal')->middleware("login");
 //订单删除
-Route::get('/orders/del','Admin\OrdersController@del');
+Route::get('/orders/del','Admin\OrdersController@del')->middleware("login");
 //订单编辑页面
-Route::get('/orders/update','Admin\OrdersController@update');
+Route::get('/orders/update','Admin\OrdersController@update')->middleware("login");
 //订单编辑修改
-Route::post('/orders/update_do','Admin\OrdersController@update_do');
+Route::post('/orders/update_do','Admin\OrdersController@update_do')->middleware("login");
 //订单状态列表
-Route::get('/orders/status','Admin\OrdersController@status');
+Route::get('/orders/status','Admin\OrdersController@status')->middleware("login");
 //订单状态删除
-Route::get('/orders/status_del','Admin\OrdersController@status_del');
-
+Route::get('/orders/status_del','Admin\OrdersController@status_del')->middleware("login");
+//订单状态添加
+Route::get('/orders/status_add','Admin\OrdersController@status_add')->middleware("login");
 
 // 仓库管理
-Route::get('/warehouse/list','Admin\WarehouseController@list');
+Route::get('/warehouse/list','Admin\WarehouseController@list')->middleware("login");
 //仓库添加
-Route::get('/warehouse/add','Admin\WarehouseController@add');
+Route::get('/warehouse/add','Admin\WarehouseController@add')->middleware("login");
 //仓库添加入库
-Route::post('/warehouse/add_do','Admin\WarehouseController@add_do');
+Route::post('/warehouse/add_do','Admin\WarehouseController@add_do')->middleware("login");
 //仓库删除
-Route::get('/warehouse/del','Admin\WarehouseController@del');
+Route::get('/warehouse/del','Admin\WarehouseController@del')->middleware("login");
 //仓库编辑页面
-Route::get('/warehouse/update','Admin\WarehouseController@update');
+Route::get('/warehouse/update','Admin\WarehouseController@update')->middleware("login");
+
 //仓库编辑修改
 
-Route::post('/warehouse/update_do','Admin\WarehouseController@update_do');
+Route::post('/warehouse/update_do','Admin\WarehouseController@update_do')->middleware("login");
 
 
 //苏帅兵

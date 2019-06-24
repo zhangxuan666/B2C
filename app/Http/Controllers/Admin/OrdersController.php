@@ -103,6 +103,29 @@ class OrdersController extends Controller
           return redirect('/orders/status');
      }
 
+     public function status_add()
+     {
+          return view('orders.status_add');
+     }
+
+
+
+
+     public function add_do(Request $request)
+     {
+          $data = $request->input();
+          var_dump($data);die;
+          unset($data['_token']);
+          // var_dump($data);die;
+
+
+          $model = new Orders;
+          $model->add_do($data);
+
+
+          return redirect('/orders/status');
+     }
+
 }
 
 
