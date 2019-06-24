@@ -21,7 +21,9 @@
   <div class="panel admin-panel">
     <div class="panel-head"><strong class="icon-reorder"> 订单状态总览</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
     <div class="padding border-bottom">
-      
+	<div class="border-b border-bno clearfix">
+			<a href="/orders/status_add" class="button bg-yellow button-small"><span class="icon-plus"></span> 添加状态</a>
+		</div>
     </div>
     <div class="padding border-bottom">
       

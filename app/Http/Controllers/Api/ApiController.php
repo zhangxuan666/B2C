@@ -13,7 +13,7 @@ class ApiController extends Controller
 
        $api=new Api();
       
-       return ($api->login($data)) ;
+       return ($api->login($data));
 
     }
 
@@ -143,4 +143,3 @@ class ApiController extends Controller
 
 
 }
-?>

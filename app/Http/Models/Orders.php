@@ -92,6 +92,11 @@ class Orders extends Model
     public function status_del($id)
     {
     	return DB::table('orders_static')->where('id', $id)->delete();
+	}
+	
+	public function add_do($data)
+    {
+    	return DB::table('orders_static')->insert($data);
     }
 
 }
