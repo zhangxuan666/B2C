@@ -23,13 +23,16 @@ class Rbac
         //查询是否是admin管理员  是的话 不用验证权限
         $User = new User();
         $userinfo = $User->selectUserid($userid);
-//        var_dump($userinfo);die;
+        if(!empty($userinfo)){
+            //        var_dump($userinfo);die;
         $userinfo = $userinfo->toArray();
         $username = $userinfo['user_name'];
 //        var_dump($username);die;
          if($username=='admin'){
              return $next($request);
          }
+        }
+
 
         $Userrole = new Userrole();
         //查询此管理员有什么样的角色

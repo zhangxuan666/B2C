@@ -54,7 +54,7 @@
                 <td colspan="8"><div class="pagelist"> <a href="{{$data->previousPageUrl()}}">上一页</a>
 
                         @for($i=1;$i<=($data->lastPage());$i++)
-                            <a href="http://www.b2c.com/admin/adminlist?page={{$i}}">{{$i}}</a>
+                            <a href="http://www.home.com/admin/adminlist?page={{$i}}">{{$i}}</a>
                         @endfor
 
                         <a href="{{$data->nextPageUrl()}}">下一页</a>

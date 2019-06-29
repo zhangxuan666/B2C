@@ -181,7 +181,7 @@ Route::any('/home/member_links','Home\IndexController@member_links');
 Route::any('/home/member_member','Home\IndexController@member_member');
 Route::any('/home/member_member_list','Home\IndexController@member_member_list');
 Route::any('/home/member_money','Home\IndexController@member_money');
-Route::any('/home/member_money_change','Home\IndexController@member_money_change');
+Route::any('/home/member_money_charge','Home\IndexController@member_money_charge');
 Route::any('/home/member_money_pay','Home\IndexController@member_money_pay');
 Route::any('/home/member_order','Home\IndexController@member_order');
 Route::any('/home/member_packet','Home\IndexController@member_packet');

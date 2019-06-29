@@ -127,10 +127,10 @@ class IndexController extends Controller
        return view('home.member_money');
     }
 
-    public function member_money_change()
+    public function member_money_charge()
     {
       
-       return view('home.member_money_change');
+       return view('home.member_money_charge');
     }
 
     public function member_money_pay()

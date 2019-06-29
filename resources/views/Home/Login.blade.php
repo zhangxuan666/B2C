@@ -38,7 +38,7 @@
 <div class="soubg">
 	<div class="sou">
         <span class="fr">
-        	<span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp; </span>
+        	<span class="fl">你好，请<a href="/home/login">登录</a>&nbsp; <a href="/home/regist" style="color:#ff4e00;">免费注册</a>&nbsp; </span>
             <span class="fl">|&nbsp;关注我们：</span>
             <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
             <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="images/s_tel.png" align="absmiddle" /></a></span>
@@ -60,16 +60,16 @@
               	<td width="55">&nbsp;</td>
                 <td>
                 	<span class="fl" style="font-size:24px;">登录</span>
-                    <span class="fr">还没有商城账号，<a href="Regist.html" style="color:#ff4e00;">立即注册</a></span>
+                    <span class="fr">还没有商城账号，<a href="/home/regist" style="color:#ff4e00;">立即注册</a></span>
                 </td>
               </tr>
               <tr height="70">
                 <td>用户名</td>
-                <td><input type="text" value="" class="l_user" /></td>
+                <td><input type="text" value="" class="l_user"  id="name"/></td>
               </tr>
               <tr height="70">
                 <td>密&nbsp; &nbsp; 码</td>
-                <td><input type="password" value="" class="l_pwd" /></td>
+                <td><input type="password" value="" class="l_pwd" id='pwd' /></td>
               </tr>
               <tr>
               	<td>&nbsp;</td>
@@ -82,7 +82,7 @@
               </tr>
               <tr height="60">
               	<td>&nbsp;</td>
-                <td><input type="submit" value="登录" class="log_btn" /></td>
+                <td><input type="button" value="登录" class="log_btn" /></td>
               </tr>
             </table>
             </form>
@@ -106,3 +106,25 @@
 <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
 <![endif]-->
 </html>
+
+
+<script>
+    $(".log_btn").click(function(){
+        var users_name = $("#name").val();
+        var users_pwd = $("#pwd").val();
+       $.ajax({
+           url:'/api/index/login',
+           type:"post",
+           dataType:'json',
+           data:{users_name:users_name,use
+            rs_pwd:users_pwd},
+           success:function(e){
+            if(e.code==200){
+                location.href="/home/index";   
+            }else{
+                alert('Sir,账号或密码出错了');
+            }
+           }
+       })
+    })
+</script>
