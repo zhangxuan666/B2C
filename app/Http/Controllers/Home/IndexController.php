@@ -2,15 +2,22 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 
 class IndexController extends Controller
 {
-    public function Index()
+   public function Index(Request $request)
     {
+       $token=$request->input('token');
       
-       return view('home.index');
+       $url=file_get_contents("http://www.home.com/api/index/typelist?token=".$token);
+
+      $data=json_decode($url,true);
+      // var_dump($data);die;
+       return view('home.index',['data'=>$data['data']]);
     }
+
 
     public function sell()
     {
