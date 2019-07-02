@@ -25,6 +25,7 @@ class Api extends Model
         $data['token_time']=time();
         
        Session::put('id',$list['id']);
+       Session::put('name',$list['users_name']);
        Session::put('token',$token);
        Session::put('time',time());
       //return Session::get('token');

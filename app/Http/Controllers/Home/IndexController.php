@@ -3,21 +3,50 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\StoreRegistPost;
+
 
 
 class IndexController extends Controller
 {
    public function Index(Request $request)
     {
-       $token=$request->input('token');
       
-       $url=file_get_contents("http://www.home.com/api/index/typelist?token=".$token);
+      
+       $url=file_get_contents("http://www.home.com/api/index/typelist");
 
       $data=json_decode($url,true);
-      // var_dump($data);die;
+      
        return view('home.index',['data'=>$data['data']]);
     }
 
+
+    public function regist_do(Request $request)
+    {
+      
+      $data = $request->post();
+
+      $this->Validator($data)->validate();
+      
+      $url=file_get_contents("http://www.home.com/api/index/reg?users_name=".$data['users_name'].'&users_pwd='.$data['users_pwd'].'&email='.$data['email']);
+     
+      $data=json_decode($url,true);
+
+      if($data['code']==200){
+        return redirect('home/login');
+      }else{
+         return back()->withErrors('注册失败');
+      }
+
+    }
+
+    public function login_out(Request $request)
+    {
+      $request->session()->flush();
+      
+     return redirect('home/index');
+    }
 
     public function sell()
     {
@@ -195,6 +224,17 @@ class IndexController extends Controller
 
 
    
+    protected function validator(array $data)
+   {
+     return Validator::make($data, [
+        'users_name' => 'required|regex:/\p{Han}/u',
+         'users_pwd' => 'required|regex:/^[a-zA-Z0-9]{6,10}$/',
+         'users_pwd_two'=>'required|same:users_pwd',
+         'email'=>'required|email',
+       ]);
+
+     
+    }
 
 
 
