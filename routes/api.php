@@ -29,7 +29,7 @@ Route::get('index/ourlist',"Api\ApiController@ourList")->middleware('token');
 //个人修改
 Route::post('index/ourupdate',"Api\ApiController@ourUpdate")->middleware('token');
 //商品分类
-Route::get('index/typelist',"Api\ApiController@typeList")->middleware('token');
+Route::get('index/typelist',"Api\ApiController@typeList");
 //购物车展示
 Route::get('index/shoplist',"Api\ApiController@shopList")->middleware('token');
 //购物车添加
@@ -44,4 +44,8 @@ Route::any('index/collectlist','Api\ApiController@collect')->middleware('token')
 Route::any('index/collectdel','Api\ApiController@collectDel')->middleware('token');
 //收藏添加
 Route::any('index/collectadd','Api\ApiController@collectadd')->middleware('token');
-//
+//轮播图展示
+Route::any('index/carousel','Api\ApiController@carousel');
+//商品展示
+Route::get('index/goodslist',"Api\ApiController@goodsList");
+Route::get('index/goods',"Api\ApiController@goods");

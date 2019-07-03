@@ -35,7 +35,28 @@ class Api extends Model
     }
 
 
+   //商品展示
+    public function goodslist(){
 
+        $res=DB::table('goods')->orderBy('id','desc')->select('goods_name','goods_img','goods_price','goods_intro','id')->limit(10)->get();
+
+        if($res){
+        return  response()->json(['code'=>200,'msg'=>"商品展示成功",'data'=>$res])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+        }else{
+            return  response()->json(['code'=>216,'msg'=>"商品展示失败"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+        }
+    }
+   //商品展示
+    public function goods(){
+
+        $res=DB::table('goods')->select('goods_name','goods_img','goods_price','goods_intro','id')->get();
+
+        if($res){
+        return  response()->json(['code'=>200,'msg'=>"商品展示成功",'data'=>$res])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+        }else{
+            return  response()->json(['code'=>216,'msg'=>"商品展示失败"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+        }
+    }
     public function activelist(){
         $res=DB::table('active')->get()->toArray();
         return response()->json(['code'=>200,'msg'=>"展示成功",'data'=>$res])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
@@ -182,6 +203,16 @@ class Api extends Model
             return response()->json(['code'=>214,'msg'=>"注册失败"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);     
         }
         
+    }
+    //轮播图
+    public function carousel(){
+        $res=DB::table('carousel')->get()->toArray();
+        if($res){
+           return response()->json(['code'=>200,'msg'=>"轮播图展示成功",'data'=>$res])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+        }else{
+            return response()->json(['code'=>214,'msg'=>"轮播图展示失败"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);     
+        }
+
     }
 
 

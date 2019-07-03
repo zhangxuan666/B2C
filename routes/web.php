@@ -92,9 +92,6 @@ Route::get('/orders/status','Admin\OrdersController@status')->middleware("login"
 Route::get('/orders/status_del','Admin\OrdersController@status_del')->middleware("login");
 //订单状态添加
 Route::get('/orders/status_add','Admin\OrdersController@status_add')->middleware("login");
-//订单状态添加执行
-Route::post('/orders/add_do','Admin\OrdersController@add_do')->middleware("login");
-
 
 // 仓库管理
 Route::get('/warehouse/list','Admin\WarehouseController@list')->middleware("login");

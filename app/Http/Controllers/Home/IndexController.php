@@ -3,16 +3,23 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Http\Models\Goods;
 use Session;
 
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\StoreRegistPost;
+
+
 class IndexController extends Controller
 {
+
+  
    public function Index(Request $request)
     {
-       $token=$request->input('token');
+
 //      var_dump($token);die;
-       $url=file_get_contents("http://www.home.com/api/index/typelist?token=".$token);
+       $url=file_get_contents("http://www.home.com/api/index/typelist");
 //      var_dump($url);die;
       $data=json_decode($url,true);
       $data1 = $this->getTherr($data['data'],0);
@@ -56,9 +63,50 @@ class IndexController extends Controller
 
 
        $request->session()->put("datas",$datas);
-       return view('home.index',['data'=>$data1,'info'=>$info,'sum'=>$sum,'count'=>$count,'num'=>$num]);
+//       return view('home.index',['data'=>$data1,'info'=>$info,'sum'=>$sum,'count'=>$count,'num'=>$num]);
+
+     
+
+       $url2=file_get_contents("http://www.home.com/api/index/carousel",'GET');
+       $url3=file_get_contents("http://www.home.com/api/index/goodslist",'GET');
+       $url4=file_get_contents("http://www.home.com/api/index/goods",'GET');
+
+
+      $data2=json_decode($url2,true);
+       $data3=json_decode($url3,true);
+       $data4=json_decode($url4,true);
+      
+       return view('home.index',['data'=>$data1,'res'=>$data2['data'],'res1'=>$data3['data'],'res2'=>$data4['data'],'info'=>$info,'sum'=>$sum,'count'=>$count,'num'=>$num]);
     }
 
+
+    public function regist_do(Request $request)
+    {
+      
+      $data = $request->post();
+
+      $this->Validator($data)->validate();
+      
+      $url=file_get_contents("http://www.home.com/api/index/reg?users_name=".$data['users_name'].'&users_pwd='.$data['users_pwd'].'&email='.$data['email']);
+     
+      $data=json_decode($url,true);
+
+      if($data['code']==200){
+        return redirect('home/login');
+      }else{
+         return back()->withErrors('注册失败');
+         //注册失败
+      }
+
+
+    }
+
+    public function login_out(Request $request)
+    {
+          $request->session()->flush();
+      
+     return redirect('home/index');
+    }
 
     //父级找他的儿子  递归展示
     public function getTherr($data,$parentid=0)
@@ -333,6 +381,17 @@ class IndexController extends Controller
 
    
 
+ protected function validator(array $data)
+   {
+     return Validator::make($data, [
+        'users_name' => 'required|regex:/\p{Han}/u',
+         'users_pwd' => 'required|regex:/^[a-zA-Z0-9]{6,10}$/',
+         'users_pwd_two'=>'required|same:users_pwd',
+         'email'=>'required|email',
+       ]);
+
+     
+    }
 
 
 
