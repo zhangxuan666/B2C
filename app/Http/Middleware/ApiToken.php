@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Session;
-use  DB;
 
 class ApiToken
 {
@@ -18,29 +17,24 @@ class ApiToken
     public function handle($request, Closure $next)
     {
 
-        $token=$request->input('token');
-        $data=DB::table('users')->where('token',$token)->first();
        if(empty($request->get('token'))){
 
-          return response()->json(['code'=>501,'msg'=>"无token"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
-
-        }
-         
-
-        if(!($data->token)){
-
-            //echo session::get('token');die;
-
-             return response()->json(['code'=>502,'msg'=>"无效token"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+          echo "无token";die;
 
         }
 
-        if(time()-($data->token_time)>2*3600){
+        if(session('token')!=$request->input('token')){
 
-            return response()->json(['code'=>503,'msg'=>"token过期"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+           echo "无效Token";die;
+
+        }
+
+        if(time()-session('time')>2*3600){
+
+           echo "token过期";die;
 
         }
         
         return $next($request);
     }
-   }
+}

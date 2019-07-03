@@ -7,18 +7,24 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoreRegistPost;
 
 
-
 class IndexController extends Controller
 {
+
+  
    public function Index(Request $request)
     {
-      
-      
+     
        $url=file_get_contents("http://www.home.com/api/index/typelist");
+       $url2=file_get_contents("http://www.home.com/api/index/carousel",'GET');
+       $url3=file_get_contents("http://www.home.com/api/index/goodslist",'GET');
+       $url4=file_get_contents("http://www.home.com/api/index/goods",'GET');
 
       $data=json_decode($url,true);
+      $data2=json_decode($url2,true);
+       $data3=json_decode($url3,true);
+       $data4=json_decode($url4,true);
       
-       return view('home.index',['data'=>$data['data']]);
+       return view('home.index',['data'=>$data['data'],'res'=>$data2['data'],'res1'=>$data3['data'],'res2'=>$data4['data'],]);
     }
 
 
@@ -44,7 +50,7 @@ class IndexController extends Controller
 
     public function login_out(Request $request)
     {
-      $request->session()->flush();
+          $request->session()->flush();
       
      return redirect('home/index');
     }
@@ -225,7 +231,8 @@ class IndexController extends Controller
 
 
    
-    protected function validator(array $data)
+
+ protected function validator(array $data)
    {
      return Validator::make($data, [
         'users_name' => 'required|regex:/\p{Han}/u',
@@ -236,7 +243,6 @@ class IndexController extends Controller
 
      
     }
-
 
 
 

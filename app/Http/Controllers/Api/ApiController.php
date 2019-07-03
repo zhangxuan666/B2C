@@ -34,7 +34,19 @@ class ApiController extends Controller
         $Api=new Api();
         return $Api->orderadd($data);
     }
+    //商品展示
+    public function goodsList(){
 
+        $Api=new Api();
+
+        return $Api->goodsList();
+    }
+    //商品展示1
+    public function goods(){
+       $Api=new Api();
+
+        return $Api->goods();
+    }
     //个人展示接口
     public function ourList(Request $request){
         $id=$request->session()->get('id');
@@ -107,7 +119,14 @@ class ApiController extends Controller
      //注册接口
     public function reg(Request $request){
         $data = $request->post();
-     
+        if($request->file('img')->isValid())
+       {
+          $path=$request->img->path();
+          $path=$request->img->store('');
+          // var_dump($path);die;
+          $path="/image/".$path;
+       }
+        $data['img']=$path;
         $Api=new Api();
         return $Api->reg($data);
     }
@@ -131,6 +150,11 @@ class ApiController extends Controller
      $data=$request->except('token');
       $Api=new Api();
       return $Api->collectadd($data);
+    }
+    //轮播图接口
+    public function carousel(){
+      $Api=new Api();
+      return $Api->carousel();
     }
 
 
