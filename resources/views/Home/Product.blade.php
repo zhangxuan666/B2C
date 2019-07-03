@@ -15,7 +15,7 @@
     <script type="text/javascript" src="js/menu.js"></script>    
             
 	<script type="text/javascript" src="js/lrscroll_1.js"></script>   
-     
+  <!--    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
     
 	<script type="text/javascript" src="js/n_nav.js"></script>
     
@@ -515,17 +515,9 @@
                 </ul>
             </div>
             <div class="des_share">
-            	<div class="d_sh">
-                	分享
-                    <div class="d_sh_bg">
-                    	<a href="#"><img src="images/sh_1.gif" /></a>
-                        <a href="#"><img src="images/sh_2.gif" /></a>
-                        <a href="#"><img src="images/sh_3.gif" /></a>
-                        <a href="#"><img src="images/sh_4.gif" /></a>
-                        <a href="#"><img src="images/sh_5.gif" /></a>
-                    </div>
-                </div>
-                <div class="d_care"><a onclick="ShowDiv('MyDiv','fade')">关注商品</a></div>
+        <p>
+       <p class="time" style="font-size: 25px;color: red" >还剩 <span id="LeftTime"></span></p>
+        </p>
             </div>
             <div class="des_join">
             	<div class="j_nums">
@@ -898,7 +890,7 @@
             <dd><a href="#">售后服务保证</a></dd>
             <dd><a href="#">产品质量保证</a></dd>
         </dl>
-        <dl>
+        <dl>f
         	<dt><a href="#">联系我们</a></dt>
             <dd><a href="#">网站故障报告</a></dd>
             <dd><a href="#">购物咨询</a></dd>
@@ -929,6 +921,30 @@
 </body>
 
 <script src="js/ShopShow.js"></script>
+<script>
+ function FreshTime() {
+  var endtime = new Date("2019/7/3,12:20:12");//结束时间
+  var nowtime = new Date();//当前时间
+  var lefttime = parseInt((endtime.getTime() - nowtime.getTime()) / 1000);
+  d = parseInt(lefttime / (24 * 3600));
+  h = parseInt(lefttime /3600%24);
+  m = parseInt(lefttime/60%60);
+  s = parseInt(lefttime % 60);
+ 
+  document.getElementById("LeftTime").innerHTML = d + "天" + h + "小时" + m + "分" + s + "秒";
+  if (lefttime <= 0) {
+   document.getElementById("LeftTime").innerHTML = "团购已结束";
+   clearInterval(sh);
+  }
+ }
+ 
+ var sh;
+ sh = setInterval(function () {
+  FreshTime()
+ },500);
+ 
+</script>
+</script>
 
 <!--[if IE 6]>
 <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>

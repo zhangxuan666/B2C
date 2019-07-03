@@ -2,50 +2,22 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use App\Http\Requests\StoreRegistPost;
-
 
 
 class IndexController extends Controller
 {
-   public function Index(Request $request)
+    public function Index()
     {
-      
-      
-       $url=file_get_contents("http://www.home.com/api/index/typelist");
-
-      $data=json_decode($url,true);
-      
-       return view('home.index',['data'=>$data['data']]);
-    }
-
-
-    public function regist_do(Request $request)
-    {
-      
-      $data = $request->post();
-
-      $this->Validator($data)->validate();
-      
-      $url=file_get_contents("http://www.home.com/api/index/reg?users_name=".$data['users_name'].'&users_pwd='.$data['users_pwd'].'&email='.$data['email']);
-     
-      $data=json_decode($url,true);
-
-      if($data['code']==200){
-        return redirect('home/login');
-      }else{
-         return back()->withErrors('注册失败');
-      }
-
-    }
-
-    public function login_out(Request $request)
-    {
-      $request->session()->flush();
-      
-     return redirect('home/index');
+       $url=file_get_contents("http://www.B2C.com/api/index/carousel",'GET');
+       $url1=file_get_contents("http://www.B2C.com/api/index/goodslist",'GET');
+       $url2=file_get_contents("http://www.B2C.com/api/index/goods",'GET');
+       $data=json_decode($url,true);
+       $data2=json_decode($url2,true);
+       $data1=json_decode($url1,true);
+       $res1=$data1['data'];
+       $res=$data['data'];
+       $res2=$data2['data'];
+       return view('home.index',compact('res','res1','res2'));
     }
 
     public function sell()
@@ -224,17 +196,6 @@ class IndexController extends Controller
 
 
    
-    protected function validator(array $data)
-   {
-     return Validator::make($data, [
-        'users_name' => 'required|regex:/\p{Han}/u',
-         'users_pwd' => 'required|regex:/^[a-zA-Z0-9]{6,10}$/',
-         'users_pwd_two'=>'required|same:users_pwd',
-         'email'=>'required|email',
-       ]);
-
-     
-    }
 
 
 
