@@ -189,6 +189,8 @@ Route::any('/home/member_results','Home\IndexController@member_results');
 Route::any('/home/member_safe','Home\IndexController@member_safe');
 Route::any('/home/member_user','Home\IndexController@member_user');
 Route::any('/home/regist','Home\IndexController@regist');
+Route::any('/home/regist_do','Home\IndexController@regist_do');
+Route::any('/home/login_out','Home\IndexController@login_out');
 Route::any('/home/selldetails','Home\IndexController@selldetails');
 
 

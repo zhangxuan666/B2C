@@ -40,7 +40,7 @@ class IndexController extends Controller
       $data=json_decode($url,true);
 
       if($data['code']==200){
-        return redirect('home/login');
+        return redirect('/home/login');
       }else{
          return back()->withErrors('注册失败');
          //注册失败
@@ -52,7 +52,7 @@ class IndexController extends Controller
     {
           $request->session()->flush();
       
-     return redirect('home/index');
+         return redirect('/home/index');
     }
 
     public function sell()

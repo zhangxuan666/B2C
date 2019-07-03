@@ -119,14 +119,7 @@ class ApiController extends Controller
      //注册接口
     public function reg(Request $request){
         $data = $request->post();
-        if($request->file('img')->isValid())
-       {
-          $path=$request->img->path();
-          $path=$request->img->store('');
-          // var_dump($path);die;
-          $path="/image/".$path;
-       }
-        $data['img']=$path;
+        
         $Api=new Api();
         return $Api->reg($data);
     }
