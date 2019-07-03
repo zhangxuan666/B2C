@@ -171,6 +171,8 @@ Route::any('/home/buycar_three','Home\IndexController@buycar_three');
 Route::any('/home/buycar_two','Home\IndexController@buycar_two');
 Route::any('/home/login','Home\IndexController@login');
 Route::any('/home/product','Home\IndexController@product');
+Route::any('/home/addgou','Home\IndexController@addgouwuche');
+
 Route::any('/home/category','Home\IndexController@category');
 Route::any('/home/member','Home\IndexController@member');
 Route::any('/home/member_address','Home\IndexController@member_address');
