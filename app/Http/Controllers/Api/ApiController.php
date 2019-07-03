@@ -119,8 +119,9 @@ class ApiController extends Controller
      //注册接口
     public function reg(Request $request){
         $data = $request->post();
-        
+
         $Api=new Api();
+        
         return $Api->reg($data);
     }
     //收藏展示接口

@@ -29,7 +29,7 @@ Route::get('index/ourlist',"Api\ApiController@ourList")->middleware('token');
 //个人修改
 Route::post('index/ourupdate',"Api\ApiController@ourUpdate")->middleware('token');
 //商品分类
-Route::get('index/typelist',"Api\ApiController@typeList")->middleware('token');
+Route::get('index/typelist',"Api\ApiController@typeList");
 //购物车展示
 Route::get('index/shoplist',"Api\ApiController@shopList")->middleware('token');
 //购物车添加

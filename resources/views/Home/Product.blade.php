@@ -469,35 +469,27 @@
     <div class="content">
     	                    
         <div id="tsShopContainer">
-            <div id="tsImgS"><a href="images/p_big.jpg" title="Images" class="MagicZoom" id="MagicZoom"><img src="images/p_big.jpg" width="390" height="390" /></a></div>
-            <div id="tsPicContainer">
-                <div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>
-                <div id="tsImgSCon">
-                    <ul>
-                        <li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg"><img src="images/ps1.jpg" tsImgS="images/ps1.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(1)" rel="MagicZoom"><img src="images/ps2.jpg" tsImgS="images/ps2.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(2)" rel="MagicZoom"><img src="images/ps3.jpg" tsImgS="images/ps3.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(3)" rel="MagicZoom"><img src="images/ps4.jpg" tsImgS="images/ps4.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(4)" rel="MagicZoom"><img src="images/ps1.jpg" tsImgS="images/ps1.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(5)" rel="MagicZoom"><img src="images/ps2.jpg" tsImgS="images/ps2.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(6)" rel="MagicZoom"><img src="images/ps3.jpg" tsImgS="images/ps3.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(7)" rel="MagicZoom"><img src="images/ps4.jpg" tsImgS="images/ps4.jpg" width="79" height="79" /></li>
-                    </ul>
-                </div>
-                <div id="tsImgSArrR" onclick="tsScrollArrRight()"></div>
-            </div>
-            <img class="MagicZoomLoading" width="16" height="16" src="images/loading.gif" alt="Loading..." />				
+            <div id="tsImgS"><a href="{{$data->goods_img}}" title="Images" class="MagicZoom" id="MagicZoom"><img src="{{$data->goods_img}}" width="390" height="390" /></a></div>
+            {{--<div id="tsPicContainer">--}}
+                {{--<div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>--}}
+              {{----}}
+                {{--<div id="tsImgSArrR" onclick="tsScrollArrRight()"></div>--}}
+            {{--</div>--}}
+            <img class="MagicZoomLoading" width="16" height="16" src="images/loading.gif" alt="Loading..." />
         </div>
         
         <div class="pro_des">
+
         	<div class="des_name">
-            	<p>Dior/迪奥 真我香水EDP 克丽丝汀迪奥 全新 30ml</p>
+            	<p>{{$data->goods_name}}</p>
                 “开业巨惠，北京专柜直供”，不光低价，“真”才靠谱！
             </div>
+
             <div class="des_price">
-            	本店价格：<b>￥589</b><br />
+            	本店价格：<b>{{$data->goods_price}}</b><br />
                 消费积分：<span>28R</span>
             </div>
+
             <div class="des_choice">
             	<span class="fl">型号选择：</span>
                 <ul>
@@ -506,6 +498,7 @@
                     <li>100ml<div class="ch_img"></div></li>
                 </ul>
             </div>
+
             <div class="des_choice">
             	<span class="fl">颜色选择：</span>
                 <ul>
@@ -514,6 +507,7 @@
                     <li>黑色<div class="ch_img"></div></li>
                 </ul>
             </div>
+
             <div class="des_share">
         <p>
        <p class="time" style="font-size: 25px;color: red" >还剩 <span id="LeftTime"></span></p>
@@ -525,10 +519,19 @@
                     <input type="button" value="" onclick="addUpdate(jq(this));" class="n_btn_1" />
                     <input type="button" value="" onclick="jianUpdate(jq(this));" class="n_btn_2" />   
                 </div>
-                <span class="fl"><a onclick="ShowDiv_1('MyDiv1','fade1')"><img src="images/j_car.png" /></a></span>
+                <span class="fl"><a class="btn" goodid="{{$data->id}}"><img src="images/j_car.png" /></a></span>
             </div>            
         </div>    
-        
+
+
+
+
+
+
+
+
+
+
         <div class="s_brand">
         	<div class="s_brand_img"><img src="images/sbrand.jpg" width="188" height="132" /></div>
             <div class="s_brand_c"><a href="#">进入品牌专区</a></div>
@@ -950,3 +953,42 @@
 <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
 <![endif]-->
 </html>
+<script src="/js/jquery-1.8.3.min.js"></script>
+<script>
+    $(document).on("click",".btn",function () {
+        // alert(1);
+        var $id = {{ Session::get('id') }};
+        // alert($id);return false;
+       if($id==""){
+           alert("请您先登录！");
+           return true;
+       }
+
+       var goodid1= $(this).attr("goodid");
+       // alert(goodid1);
+
+        $.ajax({
+            url:"/home/addgou",
+            type:"get",
+            data:{goodid:goodid1},
+            dataType:"json",
+            success:function (msg) {
+                console.log(msg);
+            }
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    })
+</script>
