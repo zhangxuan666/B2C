@@ -37,6 +37,7 @@ class IndexController extends Controller
         return redirect('home/login');
       }else{
          return back()->withErrors('注册失败');
+         //注册失败
       }
 
     }
