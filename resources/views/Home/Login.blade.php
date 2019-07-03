@@ -112,15 +112,16 @@
     $(".log_btn").click(function(){
         var users_name = $("#name").val();
         var users_pwd = $("#pwd").val();
+        // alert(users_name);
        $.ajax({
            url:'/api/index/login',
            type:"post",
            dataType:'json',
-           data:{users_name:users_name,use
-            rs_pwd:users_pwd},
+           data:{users_name:users_name,users_pwd:users_pwd},
            success:function(e){
+              
             if(e.code==200){
-                location.href="/home/index";   
+                location.href="/home/index?token="+e.token;   
             }else{
                 alert('Sir,账号或密码出错了');
             }

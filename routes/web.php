@@ -92,6 +92,9 @@ Route::get('/orders/status','Admin\OrdersController@status')->middleware("login"
 Route::get('/orders/status_del','Admin\OrdersController@status_del')->middleware("login");
 //订单状态添加
 Route::get('/orders/status_add','Admin\OrdersController@status_add')->middleware("login");
+//订单状态添加执行
+Route::post('/orders/add_do','Admin\OrdersController@add_do')->middleware("login");
+
 
 // 仓库管理
 Route::get('/warehouse/list','Admin\WarehouseController@list')->middleware("login");
@@ -171,6 +174,8 @@ Route::any('/home/buycar_three','Home\IndexController@buycar_three');
 Route::any('/home/buycar_two','Home\IndexController@buycar_two');
 Route::any('/home/login','Home\IndexController@login');
 Route::any('/home/product','Home\IndexController@product');
+Route::any('/home/addgou','Home\IndexController@addgouwuche');
+
 Route::any('/home/category','Home\IndexController@category');
 Route::any('/home/member','Home\IndexController@member');
 Route::any('/home/member_address','Home\IndexController@member_address');

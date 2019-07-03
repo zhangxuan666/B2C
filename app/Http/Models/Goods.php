@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 Class Goods extends Model
 {
+    protected $table = "goods";
     public  function brand_list()
     {
         $list=Db::table('brand')->get();
@@ -106,5 +107,22 @@ Class Goods extends Model
     {
         return DB::table('goods')->where('id',$id)->delete();
     }
+
+    public function selectGood($goodid)
+    {
+        return Db::table("goods")->where("type_id",$goodid)->get();
+
+    }
+    public function selectGoods($goodsid)
+    {
+        return Db::table("goods")->where("id",$goodsid)->first();
+
+    }
+
+    public function selectGoodss($strid)
+    {
+        return Goods::whereIn("id",$strid)->get();
+    }
+
     
 }

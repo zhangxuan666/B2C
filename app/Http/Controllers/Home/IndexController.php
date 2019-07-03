@@ -2,14 +2,77 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
-
+use Illuminate\Http\Request;
+use App\Http\Models\Goods;
+use Session;
 
 class IndexController extends Controller
 {
-    public function Index()
+   public function Index(Request $request)
     {
-      
-       return view('home.index');
+       $token=$request->input('token');
+//      var_dump($token);die;
+       $url=file_get_contents("http://www.home.com/api/index/typelist?token=".$token);
+//      var_dump($url);die;
+      $data=json_decode($url,true);
+      $data1 = $this->getTherr($data['data'],0);
+//       var_dump($data1);die;
+//这里显示的是 购物车有多少产品，和产品的总价格
+       $ann=[];
+       if(!empty($request->session()->get("gwc")))
+       {
+           $ann=$request->session()->get("gwc");
+       }
+//       $zhonglei = count($ann);
+       $sum=0;
+       $num=0;
+       $str='';
+       foreach($ann as $k=>$v)
+       {
+//           var_dump($ann);
+           $str.=",".$v['goodids'];
+           $strid=substr($str,1);
+           $strid = explode(",",$strid);
+//       var_dump($strid);
+           $goodsModel = new Goods();
+           $info = $goodsModel->selectGoodss($strid);
+           $info = $info->toArray();
+           $count = count($info);
+           foreach($info as $k=>$n)
+           {
+//           var_dump($n);
+               $sum=$sum + $n['goods_price']*$v['flog'];
+               $num=$v['flog'];
+           }
+
+       }
+
+           $datas=[
+               'info'=>$info,
+               'sum'=>$sum,
+               'count'=>$count,
+                'num'=>$num,
+           ];
+
+
+       $request->session()->put("datas",$datas);
+       return view('home.index',['data'=>$data1,'info'=>$info,'sum'=>$sum,'count'=>$count,'num'=>$num]);
+    }
+
+
+    //父级找他的儿子  递归展示
+    public function getTherr($data,$parentid=0)
+    {
+        $arr=[];
+         foreach ($data as $v)
+         {
+                if($v['parent_id']==$parentid)
+                {
+                    $v['son'] = $this->getTherr($data,$v['id']);
+                    $arr[]=$v;
+                }
+         }
+         return $arr;
     }
 
     public function sell()
@@ -24,16 +87,31 @@ class IndexController extends Controller
        return view('home.brand');
     }
 
-    public function brandlist()
+    public function brandlist(Request $request)
     {
-      
-       return view('home.brandlist');
+      $goodid = $request->input("goodid");
+//      var_dump($goodid);die;
+
+        $goodsModel = new Goods();
+        $data =  $goodsModel->selectGood($goodid);
+//        var_dump($data);die;
+
+//        $data2 = $request->session()->get("gwc");
+//        var_dump($data2);die;
+
+
+
+
+       return view('home.brandlist',['data'=>$data]);
     }
 
-    public function buycar()
+    public function buycar(Request $request)
     {
-      
-       return view('home.buycar');
+
+         $datas= $request->session()->get("datas");
+//         var_dump($datas['info']);die;
+
+       return view('home.buycar',['data'=>$datas]);
     }
 
     public function buycar_three()
@@ -54,11 +132,77 @@ class IndexController extends Controller
        return view('home.login');
     }
 
-    public function product()
+    public function product(Request $request)
     {
-      
-       return view('home.product');
+       $goodsid = $request->input("goodsid");
+//       var_dump($goodsid);die;
+        $goodsModel = new Goods();
+        $data =  $goodsModel->selectGoods($goodsid);
+//        var_dump($data);die;
+
+       return view('home.product',['data'=>$data]);
     }
+
+
+    //加入购物车
+    public function addgouwuche(Request $request)
+    {
+        $goodid = $request->input("goodid");
+
+        if(empty($request->session()->get('gwc'))){
+            $arr= [
+                [
+                'goodids'=>$goodid,
+                'flog'=>1,
+               ]
+            ];
+//            var_dump($arr);die;
+            $request->session()->put('gwc',$arr);
+        }else{
+//            session::flush();
+//            var_dump(111);die;
+            $arr = $request->session()->get("gwc");
+
+            $bs = false;
+//           var_dump($arr);die;
+            foreach ($arr as $v)
+            {
+//                var_dump($v['goodids']);die;
+                if($v['goodids']==$goodid)
+                {
+                    $bs = true;
+                }
+            }
+
+            if($bs)
+            {
+                //如果购物车由此商品，那就数量加一
+                foreach ($arr as $k=>$v){
+                         if ($v['goodids']==$goodid)
+                         {
+                             $arr[$k]['flog']+=1;
+                         }
+                }
+//                var_dump($arr);die;
+                $request->session()->put("gwc",$arr);
+            }else{
+                $attr = [
+                    'goodids'=>$goodid,
+                    'flog'=>1
+                ];
+                $arr[] = $attr;
+//                var_dump($arr);die;
+                $request->session()->put("gwc",$arr);
+            }
+
+        }
+
+//        return json_encode(['code'=>200,'msg'=>添加成功]);
+
+    }
+
+
+
 
 
     public function category()
