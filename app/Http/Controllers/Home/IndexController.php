@@ -17,7 +17,7 @@ class IndexController extends Controller
   
    public function Index(Request $request)
     {
-      //哈哈
+      //哈哈1212
 //      var_dump($token);die;
        $url=file_get_contents("http://www.home.com/api/index/typelist");
 //      var_dump($url);die;
