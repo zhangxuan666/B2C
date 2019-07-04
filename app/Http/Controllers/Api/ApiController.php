@@ -121,6 +121,7 @@ class ApiController extends Controller
         $data = $request->post();
 
         $Api=new Api();
+        
         return $Api->reg($data);
     }
     //收藏展示接口

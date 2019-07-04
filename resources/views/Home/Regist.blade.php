@@ -48,12 +48,15 @@
 </div>
 
 
+
 <!--End Header End-->
+
 <!--Begin Login Begin-->
 <div class="log_bg">
     <div class="top">
         <div class="logo"><a href="Index.html"><img src="images/logo.png" /></a></div>
     </div>
+
     <div class="regist">
         <div class="log_img"><img src="images/l_img.png" width="611" height="425" /></div>
         <div class="reg_c">
@@ -91,6 +94,45 @@
                     <tr>
                         <td>&nbsp;</td>
                         <td style="font-size:12px; padding-top:20px;">
+
+	<div class="regist">
+    	<div class="log_img"><img src="images/l_img.png" width="611" height="425" /></div>
+		<div class="reg_c">
+          <form action="regist_do" method="POST">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+            <table border="0" style="width:420px; font-size:14px; margin-top:20px;" cellspacing="0" cellpadding="0">
+              <tr height="50" valign="top">
+              	<td width="95">&nbsp;</td>
+                <td>
+                	<span class="fl" style="font-size:24px;">注册</span>
+                    <span class="fr">已有商城账号，<a href="/home/login" style="color:#ff4e00;">我要登录</a></span>
+                </td>
+              </tr>
+              <tr height="50">
+                <td align="right"><font color="#ff4e00">*</font>&nbsp;用户名 &nbsp;</td>
+                <td><input type="text" name="users_name" class="l_user" onblur="fun1()" /></td>
+              </tr>
+              <tr height="50">
+                <td align="right"><font color="#ff4e00">*</font>&nbsp;密码 &nbsp;</td>
+                <td><input type="password" name="users_pwd" class="l_pwd" /></td>
+              </tr>
+
+              <tr height="50">
+                <td align="right"><font color="#ff4e00">*</font>&nbsp;确认密码 &nbsp;</td>
+                <td><input type="password" name="users_pwd_two" class="l_pwd" /></td>
+              </tr>
+
+              
+              <tr height="50">
+                <td align="right"><font color="#ff4e00">*</font>&nbsp;邮箱 &nbsp;</td>
+                <td><input type="text" name="email" class="l_email" /></td>
+              </tr>
+      
+
+              <tr>
+              	<td>&nbsp;</td>
+                <td style="font-size:12px; padding-top:20px;">
+
                 	<span style="font-family:'宋体';" class="fl">
                     	<label class="r_rad"><input type="checkbox" /></label><label class="r_txt">我已阅读并接受《用户协议》</label>
                     </span>
