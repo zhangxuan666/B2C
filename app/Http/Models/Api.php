@@ -27,11 +27,7 @@ class Api extends Model
        Session::put('id',$list['id']);
        Session::put('token',$token);
        Session::put('time',time());
-
-        Session::put('name',$list['users_name']);
-
-        //return Session::get('token');
-
+      //return Session::get('token');
       //Session::flush('token',$token);
         DB::table('users')->where('id',$list['id'])->update($data);
 
@@ -39,28 +35,7 @@ class Api extends Model
     }
 
 
-   //商品展示
-    public function goodslist(){
 
-        $res=DB::table('goods')->orderBy('id','desc')->select('goods_name','goods_img','goods_price','goods_intro','id')->limit(10)->get();
-
-        if($res){
-        return  response()->json(['code'=>200,'msg'=>"商品展示成功",'data'=>$res])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
-        }else{
-            return  response()->json(['code'=>216,'msg'=>"商品展示失败"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
-        }
-    }
-   //商品展示
-    public function goods(){
-
-        $res=DB::table('goods')->select('goods_name','goods_img','goods_price','goods_intro','id')->get();
-
-        if($res){
-        return  response()->json(['code'=>200,'msg'=>"商品展示成功",'data'=>$res])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
-        }else{
-            return  response()->json(['code'=>216,'msg'=>"商品展示失败"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
-        }
-    }
     public function activelist(){
         $res=DB::table('active')->get()->toArray();
         return response()->json(['code'=>200,'msg'=>"展示成功",'data'=>$res])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
@@ -87,7 +62,7 @@ class Api extends Model
     }
 
     public function order($id){
-        $res=DB::table('orders')->where('id',$id)->get()->toArray();
+        $res=DB::table('orders')->where('orders_user_id',$id)->get()->toArray();
         if($res){
         return  response()->json(['code'=>200,'msg'=>"订单展示成功",'data'=>$res])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
         }else{
@@ -167,14 +142,17 @@ class Api extends Model
 
     //收藏展示
     public function collect($id){
-        $res=DB::table('collect')->where('users_id',$id)->get()->toArray();
+        $res=DB::table('collect')->where('users_id',$id)
+                                ->join('goods', 'collect.goods_id', '=', 'goods.id')
+                                ->get()->toArray();
+
         if($res){
         return response()->json(['code'=>200,'msg'=>"收藏展示成功",'data'=>$res])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
         }else{
         return response()->json(['code'=>211,'msg'=>"收藏展示失败"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
         }
     }
-//收藏删除
+    //收藏删除
     public function collectdel($id){
         $res=DB::table('collect')->where('id',$id)->delete();
         if($res){
@@ -208,15 +186,43 @@ class Api extends Model
         }
         
     }
-    //轮播图
-    public function carousel(){
-        $res=DB::table('carousel')->get()->toArray();
-        if($res){
-           return response()->json(['code'=>200,'msg'=>"轮播图展示成功",'data'=>$res])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
-        }else{
-            return response()->json(['code'=>214,'msg'=>"轮播图展示失败"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);     
-        }
 
+    //收货地址展示
+    public function address($id){
+        $res=DB::table('user_addr')->where('user_id',$id)->get()->toArray();
+        if($res){
+        return response()->json(['code'=>200,'msg'=>"收藏展示成功",'data'=>$res])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+        }else{
+        return response()->json(['code'=>211,'msg'=>"收藏展示失败"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+        }
+    }
+
+
+    //收货地址删除
+    public function address_del($id){
+        $res=DB::table('user_addr')->where('id',$id)->delete();
+        if($res){
+            return response()->json(['code'=>200,'msg'=>"收货地址删除成功"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+        }else{
+            return response()->json(['code'=>212,'msg'=>"收货地址删除失败"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);     
+        }
+    }
+
+
+    //收货地址添加
+    public function address_add($data){
+
+        $ids=session::get('id');
+        $data['user_id']=$ids;
+        // var_dump($data);die;
+
+        $res=DB::table('user_addr')->insert($data);
+        if($res){
+            return response()->json(['code'=>200,'msg'=>"添加收货地址成功"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+        }else{
+            return response()->json(['code'=>213,'msg'=>"添加收货地址失败"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);     
+        }
+        
     }
 
 

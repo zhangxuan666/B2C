@@ -15,8 +15,9 @@ class OrdersController extends Controller
      	$model = new Orders;
      	$data = $model->orders();
      	// var_dump($data);die;
+          $page = $data->links();
 
-     	return view('orders.orders', ['data'=>$data]);
+     	return view('orders.orders', ['data'=>$data, 'page'=>$page]);
      }
 
 
@@ -114,7 +115,7 @@ class OrdersController extends Controller
      public function add_do(Request $request)
      {
           $data = $request->input();
-          var_dump($data);die;
+          // var_dump($data);die;
           unset($data['_token']);
           // var_dump($data);die;
 

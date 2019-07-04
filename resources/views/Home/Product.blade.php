@@ -15,7 +15,7 @@
     <script type="text/javascript" src="js/menu.js"></script>    
             
 	<script type="text/javascript" src="js/lrscroll_1.js"></script>   
-  <!--    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+     
     
 	<script type="text/javascript" src="js/n_nav.js"></script>
     
@@ -114,8 +114,7 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-        	<span class="fl">
-                @include ("layout.publiclogin")
+        	<span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="#">收藏夹</a>
@@ -162,7 +161,7 @@
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="/home/index"><img src="images/logo.png" /></a></div>
+    <div class="logo"><a href="Index.html"><img src="images/logo.png" /></a></div>
     <div class="search">
     	<form>
         	<input type="text" value="" class="s_ipt" />
@@ -170,7 +169,36 @@
         </form>                      
         <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
     </div>
-@include ("layout.publica")
+    <div class="i_car">
+    	<div class="car_t">购物车 [ <span>3</span> ]</div>
+        <div class="car_bg">
+       		<!--Begin 购物车未登录 Begin-->
+        	<div class="un_login">还未登录！<a href="Login.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
+            <!--End 购物车未登录 End-->
+            <!--Begin 购物车已登录 Begin-->
+            <ul class="cars">
+            	<li>
+                	<div class="img"><a href="#"><img src="images/car1.jpg" width="58" height="58" /></a></div>
+                    <div class="name"><a href="#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
+                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
+                </li>
+                <li>
+                	<div class="img"><a href="#"><img src="images/car2.jpg" width="58" height="58" /></a></div>
+                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
+                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
+                </li>
+                <li>
+                	<div class="img"><a href="#"><img src="images/car2.jpg" width="58" height="58" /></a></div>
+                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
+                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
+                </li>
+            </ul>
+            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>1058</span></div>
+            <div class="price_a"><a href="#">去购物车结算</a></div>
+            <!--End 购物车已登录 End-->
+        </div>
+    </div>
+</div>
 <!--End Header End--> 
 <!--Begin Menu Begin-->
 <div class="menu_bg">
@@ -441,27 +469,35 @@
     <div class="content">
     	                    
         <div id="tsShopContainer">
-            <div id="tsImgS"><a href="{{$data->goods_img}}" title="Images" class="MagicZoom" id="MagicZoom"><img src="{{$data->goods_img}}" width="390" height="390" /></a></div>
-            {{--<div id="tsPicContainer">--}}
-                {{--<div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>--}}
-              {{----}}
-                {{--<div id="tsImgSArrR" onclick="tsScrollArrRight()"></div>--}}
-            {{--</div>--}}
-            <img class="MagicZoomLoading" width="16" height="16" src="images/loading.gif" alt="Loading..." />
+            <div id="tsImgS"><a href="images/p_big.jpg" title="Images" class="MagicZoom" id="MagicZoom"><img src="images/p_big.jpg" width="390" height="390" /></a></div>
+            <div id="tsPicContainer">
+                <div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>
+                <div id="tsImgSCon">
+                    <ul>
+                        <li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg"><img src="images/ps1.jpg" tsImgS="images/ps1.jpg" width="79" height="79" /></li>
+                        <li onclick="showPic(1)" rel="MagicZoom"><img src="images/ps2.jpg" tsImgS="images/ps2.jpg" width="79" height="79" /></li>
+                        <li onclick="showPic(2)" rel="MagicZoom"><img src="images/ps3.jpg" tsImgS="images/ps3.jpg" width="79" height="79" /></li>
+                        <li onclick="showPic(3)" rel="MagicZoom"><img src="images/ps4.jpg" tsImgS="images/ps4.jpg" width="79" height="79" /></li>
+                        <li onclick="showPic(4)" rel="MagicZoom"><img src="images/ps1.jpg" tsImgS="images/ps1.jpg" width="79" height="79" /></li>
+                        <li onclick="showPic(5)" rel="MagicZoom"><img src="images/ps2.jpg" tsImgS="images/ps2.jpg" width="79" height="79" /></li>
+                        <li onclick="showPic(6)" rel="MagicZoom"><img src="images/ps3.jpg" tsImgS="images/ps3.jpg" width="79" height="79" /></li>
+                        <li onclick="showPic(7)" rel="MagicZoom"><img src="images/ps4.jpg" tsImgS="images/ps4.jpg" width="79" height="79" /></li>
+                    </ul>
+                </div>
+                <div id="tsImgSArrR" onclick="tsScrollArrRight()"></div>
+            </div>
+            <img class="MagicZoomLoading" width="16" height="16" src="images/loading.gif" alt="Loading..." />				
         </div>
         
         <div class="pro_des">
-
         	<div class="des_name">
-            	<p>{{$data->goods_name}}</p>
+            	<p>Dior/迪奥 真我香水EDP 克丽丝汀迪奥 全新 30ml</p>
                 “开业巨惠，北京专柜直供”，不光低价，“真”才靠谱！
             </div>
-
             <div class="des_price">
-            	本店价格：<b>{{$data->goods_price}}</b><br />
+            	本店价格：<b>￥589</b><br />
                 消费积分：<span>28R</span>
             </div>
-
             <div class="des_choice">
             	<span class="fl">型号选择：</span>
                 <ul>
@@ -470,7 +506,6 @@
                     <li>100ml<div class="ch_img"></div></li>
                 </ul>
             </div>
-
             <div class="des_choice">
             	<span class="fl">颜色选择：</span>
                 <ul>
@@ -479,11 +514,18 @@
                     <li>黑色<div class="ch_img"></div></li>
                 </ul>
             </div>
-
             <div class="des_share">
-        <p>
-       <p class="time" style="font-size: 25px;color: red" >还剩 <span id="LeftTime"></span></p>
-        </p>
+            	<div class="d_sh">
+                	分享
+                    <div class="d_sh_bg">
+                    	<a href="#"><img src="images/sh_1.gif" /></a>
+                        <a href="#"><img src="images/sh_2.gif" /></a>
+                        <a href="#"><img src="images/sh_3.gif" /></a>
+                        <a href="#"><img src="images/sh_4.gif" /></a>
+                        <a href="#"><img src="images/sh_5.gif" /></a>
+                    </div>
+                </div>
+                <div class="d_care"><a onclick="ShowDiv('MyDiv','fade')">关注商品</a></div>
             </div>
             <div class="des_join">
             	<div class="j_nums">
@@ -491,19 +533,10 @@
                     <input type="button" value="" onclick="addUpdate(jq(this));" class="n_btn_1" />
                     <input type="button" value="" onclick="jianUpdate(jq(this));" class="n_btn_2" />   
                 </div>
-                <span class="fl"><a class="btn"    userid="{{ Session::get('id') }}" goodid="{{$data->id}}"><img src="images/j_car.png" /></a></span>
+                <span class="fl"><a onclick="ShowDiv_1('MyDiv1','fade1')"><img src="images/j_car.png" /></a></span>
             </div>            
         </div>    
-
-
-
-
-
-
-
-
-
-
+        
         <div class="s_brand">
         	<div class="s_brand_img"><img src="images/sbrand.jpg" width="188" height="132" /></div>
             <div class="s_brand_c"><a href="#">进入品牌专区</a></div>
@@ -865,7 +898,7 @@
             <dd><a href="#">售后服务保证</a></dd>
             <dd><a href="#">产品质量保证</a></dd>
         </dl>
-        <dl>f
+        <dl>
         	<dt><a href="#">联系我们</a></dt>
             <dd><a href="#">网站故障报告</a></dd>
             <dd><a href="#">购物咨询</a></dd>
@@ -896,72 +929,8 @@
 </body>
 
 <script src="js/ShopShow.js"></script>
-<script>
- function FreshTime() {
-  var endtime = new Date("2019/7/23,12:20:12");//结束时间
-  var nowtime = new Date();//当前时间
-  var lefttime = parseInt((endtime.getTime() - nowtime.getTime()) / 1000);
-  d = parseInt(lefttime / (24 * 3600));
-  h = parseInt(lefttime /3600%24);
-  m = parseInt(lefttime/60%60);
-  s = parseInt(lefttime % 60);
- 
-  document.getElementById("LeftTime").innerHTML = d + "天" + h + "小时" + m + "分" + s + "秒";
-  if (lefttime <= 0) {
-   document.getElementById("LeftTime").innerHTML = "团购已结束";
-   clearInterval(sh);
-  }
- }
- 
- var sh;
- sh = setInterval(function () {
-  FreshTime()
- },500);
- 
-</script>
-</script>
 
 <!--[if IE 6]>
 <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
 <![endif]-->
 </html>
-<script src="/js/jquery-1.8.3.min.js"></script>
-<script>
-    $(document).on("click",".btn",function () {
-        // alert(1);
-
-        var $id= $(this).attr("userid");
-        // alert($id);return false;
-       if($id==""){
-           alert("请您先登录！");
-           return true;
-       }
-
-       var goodid1= $(this).attr("goodid");
-       // alert(goodid1);
-
-        $.ajax({
-            url:"/home/addgou",
-            type:"get",
-            data:{goodid:goodid1},
-            dataType:"json",
-            success:function (msg) {
-                console.log(msg);
-            }
-        })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    })
-</script>

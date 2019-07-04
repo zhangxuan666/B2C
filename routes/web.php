@@ -92,6 +92,9 @@ Route::get('/orders/status','Admin\OrdersController@status')->middleware("login"
 Route::get('/orders/status_del','Admin\OrdersController@status_del')->middleware("login");
 //订单状态添加
 Route::get('/orders/status_add','Admin\OrdersController@status_add')->middleware("login");
+//订单状态添加执行
+Route::post('/orders/add_do','Admin\OrdersController@add_do')->middleware("login");
+
 
 // 仓库管理
 Route::get('/warehouse/list','Admin\WarehouseController@list')->middleware("login");
@@ -162,6 +165,7 @@ Route::any("rbac/construct","admin\RbacController@__construct");
 
 // 前台
 
+//首页
 Route::any('/home/index','Home\IndexController@index');
 Route::any('/home/sell','Home\IndexController@sell');
 Route::any('/home/brand','Home\IndexController@brand');
@@ -169,31 +173,82 @@ Route::any('/home/brandlist','Home\IndexController@brandlist');
 Route::any('/home/buycar','Home\IndexController@buycar');
 Route::any('/home/buycar_three','Home\IndexController@buycar_three');
 Route::any('/home/buycar_two','Home\IndexController@buycar_two');
-Route::any('/home/login','Home\IndexController@login');
 Route::any('/home/product','Home\IndexController@product');
-Route::any('/home/addgou','Home\IndexController@addgouwuche');
-
 Route::any('/home/category','Home\IndexController@category');
-Route::any('/home/member','Home\IndexController@member');
-Route::any('/home/member_address','Home\IndexController@member_address');
-Route::any('/home/member_cash','Home\IndexController@member_cash');
-Route::any('/home/member_collect','Home\IndexController@member_collect');
-Route::any('/home/member_commission','Home\IndexController@member_commission');
-Route::any('/home/member_links','Home\IndexController@member_links');
-Route::any('/home/member_member','Home\IndexController@member_member');
-Route::any('/home/member_member_list','Home\IndexController@member_member_list');
-Route::any('/home/member_money','Home\IndexController@member_money');
-Route::any('/home/member_money_charge','Home\IndexController@member_money_charge');
-Route::any('/home/member_money_pay','Home\IndexController@member_money_pay');
-Route::any('/home/member_order','Home\IndexController@member_order');
-Route::any('/home/member_packet','Home\IndexController@member_packet');
-Route::any('/home/member_results','Home\IndexController@member_results');
-Route::any('/home/member_safe','Home\IndexController@member_safe');
-Route::any('/home/member_user','Home\IndexController@member_user');
-Route::any('/home/regist','Home\IndexController@regist');
-Route::any('/home/regist_do','Home\IndexController@regist_do');
-Route::any('/home/login_out','Home\IndexController@login_out');
 Route::any('/home/selldetails','Home\IndexController@selldetails');
+
+
+//登录
+Route::any('/home/login','Home\IndexController@login');
+//注册
+Route::any('/home/regist','Home\IndexController@regist');
+
+
+//个人中心主页
+Route::any('/home/member','Home\IndexController@member');
+//个人信息修改
+Route::any('/home/member_update','Home\IndexController@member_update');
+//个人信息修改执行
+Route::any('/home/update_do','Home\IndexController@update_do');
+
+//我的订单
+Route::any('/home/member_order','Home\IndexController@member_order');
+
+//收货地址
+Route::any('/home/member_address','Home\IndexController@member_address');
+//收货地址删除
+Route::any('/home/address_del','Home\IndexController@address_del');
+//添加收货地址
+Route::any('/home/member_addressadd','Home\IndexController@member_addressadd');
+//添加收货地址执行
+Route::any('/home/address_adddo','Home\IndexController@address_adddo');
+//修改收货地址
+Route::any('/home/address_update','Home\IndexController@address_update');
+//修改收货地址执行
+Route::any('/home/address_updatedo','Home\IndexController@address_updatedo');
+//用户信息  member
+// Route::any('/home/member_user','Home\IndexController@member_user');
+
+Route::get('region', 'Home\IndexController@region');
+
+//我的收藏
+Route::any('/home/member_collect','Home\IndexController@member_collect');
+//收藏删除
+Route::any('/home/collect_del','Home\IndexController@collect_del');
+
+//为您推荐
+Route::any('/home/recommend','Home\IndexController@recommend');
+
+//我的留言
+// Route::any('/home/member_msg','Home\IndexController@member_msg');
+
+//申请提现
+Route::any('/home/member_cash','Home\IndexController@member_cash');
+
+//我的佣金
+Route::any('/home/member_commission','Home\IndexController@member_commission');
+//推广链接
+Route::any('/home/member_links','Home\IndexController@member_links');
+//我的会员
+Route::any('/home/member_member','Home\IndexController@member_member');
+//我的会员一级会员
+Route::any('/home/member_member_list','Home\IndexController@member_member_list');
+//资金管理
+Route::any('/home/member_money','Home\IndexController@member_money');
+//会员余额
+Route::any('/home/member_money_charge','Home\IndexController@member_money_charge');
+//资金管理
+Route::any('/home/member_money_pay','Home\IndexController@member_money_pay');
+//我的红包
+Route::any('/home/member_packet','Home\IndexController@member_packet');
+//我的业绩
+Route::any('/home/member_results','Home\IndexController@member_results');
+//账户安全
+Route::any('/home/member_safe','Home\IndexController@member_safe');
+//用户信息
+Route::any('/home/member_user','Home\IndexController@member_user');
+
+
 
 
 

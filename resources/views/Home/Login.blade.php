@@ -49,7 +49,7 @@
 <!--Begin Login Begin-->
 <div class="log_bg">	
     <div class="top">
-        <div class="logo"><a href="/home/index"><img src="images/logo.png" /></a></div>
+        <div class="logo"><a href="Index.html"><img src="images/logo.png" /></a></div>
     </div>
 	<div class="login">
     	<div class="log_img"><img src="images/l_img.png" width="611" height="425" /></div>
@@ -116,7 +116,8 @@
            url:'/api/index/login',
            type:"post",
            dataType:'json',
-           data:{users_name:users_name,users_pwd:users_pwd},
+           data:{users_name:users_name,use
+            rs_pwd:users_pwd},
            success:function(e){
             if(e.code==200){
                 location.href="/home/index";   

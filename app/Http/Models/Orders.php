@@ -12,7 +12,7 @@ class Orders extends Model
 	//订单表
 	public function orders()
 	{
-		return DB::table('orders')->get();
+		return DB::table('orders')->paginate(3);
 	}
 
 

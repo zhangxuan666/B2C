@@ -107,8 +107,7 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-        	<span class="fl">
-                @include ("layout.publiclogin")
+        	<span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="#">收藏夹</a>
@@ -155,7 +154,7 @@
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="/home/index"><img src="images/logo.png" /></a></div>
+    <div class="logo"><a href="Index.html"><img src="images/logo.png" /></a></div>
     <div class="search">
     	<form>
         	<input type="text" value="" class="s_ipt" />
@@ -163,7 +162,36 @@
         </form>                      
         <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
     </div>
-@include ("layout.publica")
+    <div class="i_car">
+    	<div class="car_t">购物车 [ <span>3</span> ]</div>
+        <div class="car_bg">
+       		<!--Begin 购物车未登录 Begin-->
+        	<div class="un_login">还未登录！<a href="Login.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
+            <!--End 购物车未登录 End-->
+            <!--Begin 购物车已登录 Begin-->
+            <ul class="cars">
+            	<li>
+                	<div class="img"><a href="#"><img src="images/car1.jpg" width="58" height="58" /></a></div>
+                    <div class="name"><a href="#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
+                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
+                </li>
+                <li>
+                	<div class="img"><a href="#"><img src="images/car2.jpg" width="58" height="58" /></a></div>
+                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
+                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
+                </li>
+                <li>
+                	<div class="img"><a href="#"><img src="images/car2.jpg" width="58" height="58" /></a></div>
+                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
+                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
+                </li>
+            </ul>
+            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>1058</span></div>
+            <div class="price_a"><a href="#">去购物车结算</a></div>
+            <!--End 购物车已登录 End-->
+        </div>
+    </div>
+</div>
 <!--End Header End--> 
 <!--Begin Menu Begin-->
 <div class="menu_bg">
@@ -171,8 +199,247 @@
     	<!--Begin 商品分类详情 Begin-->    
     	<div class="nav">
         	<div class="nav_t">全部商品分类</div>
-
-        </div>
+            <div class="leftNav none">
+                <ul>      
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/nav1.png" /></span>
+                            <span class="fl">进口食品、生鲜</span>
+                        </div>
+                        <div class="zj">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/nav2.png" /></span>
+                            <span class="fl">食品、饮料、酒</span>
+                        </div>
+                        <div class="zj" style="top:-40px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力2</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/nav3.png" /></span>
+                            <span class="fl">母婴、玩具、童装</span>
+                        </div>
+                        <div class="zj" style="top:-80px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力3</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/nav4.png" /></span>
+                            <span class="fl">家居、家庭清洁、纸品</span>
+                        </div>
+                        <div class="zj" style="top:-120px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力4</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/nav5.png" /></span>
+                            <span class="fl">美妆、个人护理、洗护</span>
+                        </div>
+                        <div class="zj" style="top:-160px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力5</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/nav6.png" /></span>
+                            <span class="fl">女装、内衣、中老年</span>
+                        </div>
+                        <div class="zj" style="top:-200px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力6</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/nav7.png" /></span>
+                            <span class="fl">鞋靴、箱包、腕表配饰</span>
+                        </div>
+                        <div class="zj" style="top:-240px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力7</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/nav8.png" /></span>
+                            <span class="fl">男装、运动</span>
+                        </div>
+                        <div class="zj" style="top:-280px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力8</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/nav9.png" /></span>
+                            <span class="fl">手机、小家电、电脑</span>
+                        </div>
+                        <div class="zj" style="top:-320px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力9</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>                    
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/nav10.png" /></span>
+                            <span class="fl">礼品、充值</span>
+                        </div>
+                        <div class="zj" style="top:-360px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力10</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>                    	
+                </ul>            
+            </div>
+        </div>  
         <!--End 商品分类详情 End-->                                                     
     	<ul class="menu_r">                                                                                                                                               
         	<li><a href="Index.html">首页</a></li>
@@ -200,15 +467,41 @@
                 <span class="fr"><a href="#">清空</a></span>
             </div>
         	<ul>
-                <?php foreach ($data as $v) {?>
             	<li>
-                    <div class="img"><a href="#"><img src="{{$v->goods_img}}" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">{{$v->goods_name}}</a></div>
+                    <div class="img"><a href="#"><img src="images/his_1.jpg" width="185" height="162" /></a></div>
+                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
                     <div class="price">
-                    	<font>￥<span>{{$v->goods_price}}</span></font> &nbsp; 18R
+                    	<font>￥<span>368.00</span></font> &nbsp; 18R
                     </div>
                 </li>
-                <?php }?>
+                <li>
+                    <div class="img"><a href="#"><img src="images/his_2.jpg" width="185" height="162" /></a></div>
+                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
+                    <div class="price">
+                    	<font>￥<span>768.00</span></font> &nbsp; 18R
+                    </div>
+                </li>
+                <li>
+                    <div class="img"><a href="#"><img src="images/his_3.jpg" width="185" height="162" /></a></div>
+                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
+                    <div class="price">
+                    	<font>￥<span>680.00</span></font> &nbsp; 18R
+                    </div>
+                </li>
+                <li>
+                    <div class="img"><a href="#"><img src="images/his_4.jpg" width="185" height="162" /></a></div>
+                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
+                    <div class="price">
+                    	<font>￥<span>368.00</span></font> &nbsp; 18R
+                    </div>
+                </li>
+                <li>
+                    <div class="img"><a href="#"><img src="images/his_5.jpg" width="185" height="162" /></a></div>
+                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
+                    <div class="price">
+                    	<font>￥<span>368.00</span></font> &nbsp; 18R
+                    </div>
+                </li>
         	</ul>
         </div>
         <div class="l_list">
@@ -241,25 +534,234 @@
             <div class="list_c">
             	
                 <ul class="cate_list">
-                    <?php foreach ($data as $v) {?>
                 	<li>
-                    	<div class="img"><a href="{{url('/home/product')}}?goodsid={{$v->id}}"><img src="{{$v->goods_img}}" width="210" height="185" /></a></div>
+                    	<div class="img"><a href="#"><img src="images/per_1.jpg" width="210" height="185" /></a></div>
                         <div class="price">
-                            <font>￥<span>{{$v->goods_price}}</span></font> &nbsp;
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
                         </div>
-                        <div class="name"><a href="{{url('/home/product')}}?goodsid={{$v->id}}">{{$v->goods_name}}</a></div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
                         <div class="carbg">
                         	<a href="#" class="ss">收藏</a>
                             <a href="#" class="j_car">加入购物车</a>
                         </div>
                     </li>
-                   <?php }?>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_2.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_3.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_4.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_5.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_6.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_7.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_8.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_9.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_10.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_11.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_12.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_5.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_6.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_7.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_8.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_9.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_10.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_11.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="img"><a href="#"><img src="images/per_12.jpg" width="210" height="185" /></a></div>
+                        <div class="price">
+                            <font>￥<span>198.00</span></font> &nbsp; 26R
+                        </div>
+                        <div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
+                        <div class="carbg">
+                        	<a href="#" class="ss">收藏</a>
+                            <a href="#" class="j_car">加入购物车</a>
+                        </div>
+                    </li>
                 </ul>
                 
                 <div class="pages">
                 	<a href="#" class="p_pre">上一页</a><a href="#" class="cur">1</a><a href="#">2</a><a href="#">3</a>...<a href="#">20</a><a href="#" class="p_pre">下一页</a>
                 </div>
-
+                
+                
+                
             </div>
         </div>
     </div>

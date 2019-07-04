@@ -19,7 +19,7 @@ class ApiController extends Controller
 
      //订单展示接口
     public function order(Request $request){
-        $id=$request->session()->get('id');
+        $id=$request->input('id');
         $Api=new Api();
         return $Api->order($id);
     }
@@ -34,22 +34,11 @@ class ApiController extends Controller
         $Api=new Api();
         return $Api->orderadd($data);
     }
-    //商品展示
-    public function goodsList(){
 
-        $Api=new Api();
-
-        return $Api->goodsList();
-    }
-    //商品展示1
-    public function goods(){
-       $Api=new Api();
-
-        return $Api->goods();
-    }
     //个人展示接口
     public function ourList(Request $request){
-        $id=$request->session()->get('id');
+        $id=$request->input('id');
+        // var_dump($id);die;
         $Api=new Api();
         return $Api->ourlist($id);
     }
@@ -119,14 +108,20 @@ class ApiController extends Controller
      //注册接口
     public function reg(Request $request){
         $data = $request->post();
-
+        if($request->file('img')->isValid())
+       {
+          $path=$request->img->path();
+          $path=$request->img->store('');
+          // var_dump($path);die;
+          $path="/image/".$path;
+       }
+        $data['img']=$path;
         $Api=new Api();
-        
         return $Api->reg($data);
     }
     //收藏展示接口
     public function collect(Request $request){
-         $id=$request->session()->get('id');
+         $id=$request->input('id');
          $Api=new Api();
          return $Api->collect($id);
     }
@@ -134,6 +129,7 @@ class ApiController extends Controller
      public function collectDel(Request $request){
 
         $data=$request->except('token');
+        // var_dump($data);die;
 
          $Api=new Api();
 
@@ -145,10 +141,37 @@ class ApiController extends Controller
       $Api=new Api();
       return $Api->collectadd($data);
     }
-    //轮播图接口
-    public function carousel(){
+
+    //收货地址接口
+    public function address(Request $request){
+         $id=$request->input('id');
+         $Api=new Api();
+         return $Api->address($id);
+    }
+
+    //收货地址删除接口
+     public function address_del(Request $request){
+
+        $id=$request->input('id');
+        // var_dump($id);die;
+
+         $Api=new Api();
+
+        return $Api->address_del($id);
+    }
+
+
+    //收货地址添加接口
+    public function address_add(Request $request){
+
+      $request->session()->put('id', 1);
+
+      $data=$request->input();
+      // var_dump($data);die;
+
       $Api=new Api();
-      return $Api->carousel();
+
+      return $Api->address_add($data);
     }
 
 

@@ -15,6 +15,9 @@
 <script src="js/pintuer.js"></script>
 <script src="js/layer/layer.js"></script>
 <script type="text/javascript" src="jeDate/jedate.js"></script>
+<style type="text/css">
+   .page li {display: inline-block;margin-right: -1px;padding: 5px;border: 1px solid #e2e2e2;min-width: 20px;text-align: center;}
+</style>
 </head>
 <body>
 <form method="post" action="" id="listform">
@@ -91,10 +94,10 @@
       <tr>
         <td style="text-align:left; padding:19px 0;padding-left:20px;"><input type="checkbox" id="checkall"/>
           全选 </td>
-        <td colspan="8" style="text-align:left;padding-left:20px;"><a href="javascript:void(0)" class="button border-red icon-trash-o" style="padding:5px 15px;" onclick="DelSelect()"> 批量删除</a> 
+        <td colspan="8" style="text-align:left;padding-left:20px;"><a href="javascript:void(0)" class="button border-red icon-trash-o" style="padding:5px 15px;" onclick="DelSelect()"> 批量删除</a>
       </tr>
       <tr>
-        <td colspan="8"><div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div></td>
+        <td class="page" colspan="10"><?php echo $page?></td>
       </tr>
     </table>
   </div>
