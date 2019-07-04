@@ -30,10 +30,13 @@ class IndexController extends Controller
 
     public function brandlist()
     {
+
       
        return view('home.brandlist');
     }
 
+
+   
     public function buycar()
     {
       
