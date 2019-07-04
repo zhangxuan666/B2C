@@ -99,7 +99,7 @@ Class Goods extends Model
                                  ->join('warehouse','goods.attr_id','=','warehouse.id')
                                  ->join('brand','goods.brands_id','=','brand.id')
                                  ->select('goods.*','type.type_name', 'warehouse.name', 'brand.brand_name')
-                                 ->paginate(3);
+                                 ->paginate(6);
     }
 
     public function delDate($id)

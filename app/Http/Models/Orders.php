@@ -12,7 +12,7 @@ class Orders extends Model
 	//订单表
 	public function orders()
 	{
-		return DB::table('orders')->get();
+		return DB::table('orders')->paginate(3);
 	}
 
 
@@ -92,6 +92,11 @@ class Orders extends Model
     public function status_del($id)
     {
     	return DB::table('orders_static')->where('id', $id)->delete();
+	}
+	
+	public function add_do($data)
+    {
+    	return DB::table('orders_static')->insert($data);
     }
 
 }

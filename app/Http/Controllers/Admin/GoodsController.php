@@ -218,6 +218,7 @@ class GoodsController extends Controller
     {
         $data=$request->post();
         array_shift($data);
+         $this->Validator($data)->validate();
 
        if($request->file('goods_img')->isValid())
        {
@@ -228,8 +229,6 @@ class GoodsController extends Controller
         
         $data['add_time']=time();
         $data['goods_img']=$path;
-        
-        $this->Validator($data)->validate();
 
        DB::table('goods')->insert($data);
        
@@ -252,7 +251,8 @@ class GoodsController extends Controller
     {
       $data=$request->post();
       array_shift($data);
-
+      $this->Validator($data)->validate();
+      
        if($request->file('goods_img')->isValid())
        {
           $path=$request->goods_img->path();
@@ -261,8 +261,6 @@ class GoodsController extends Controller
        }
 
         $data['goods_img']=$path;
-        
-        $this->Validator($data)->validate();
 
        DB::table('goods')->where('id',$data['id'])->update($data);
        

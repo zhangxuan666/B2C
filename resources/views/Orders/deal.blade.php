@@ -59,7 +59,7 @@
         <th>商品数量</th>
         <th width="10%">订单时间</th>
         <th>状态</th>
-        <th>说明</th>
+  
         <th width="310">操作</th>
       </tr>
       <volist name="list" id="vo">
@@ -84,9 +84,9 @@
           	<td><span class="text-yellow">已完成</span></td>
           	@endif
 
-          	<td><span class="text-green">{{$data->orders_state}}</span></td>
+          	
           	<td><div class="button-group">
-          	@if (($data->orders_state) == '交易未开始' or ($data->orders_state) == '交易准备中')
+          	@if (($data->orders_status) == '1' or ($data->orders_status) == '2')
           		<a class="button border-yellow" href="/orders/update?id={{$data->orders_user_id}}"><span class="icon-paper-plane-o"></span> 编辑</a>
 				<a class="button border-main" href="/orders/ordersxq?id={{$data->id}}"><span class="icon-eye"></span> 查看</a>
           		<a class="button border-red" href="/orders/del?id={{$data->id}}"><span class="icon-trash-o"></span> 删除</a> </div></td>

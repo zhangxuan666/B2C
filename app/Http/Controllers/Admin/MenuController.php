@@ -89,7 +89,7 @@ class MenuController extends Controller
 
         if(!$res)
        {
-          return response()->json(array('status' => 1,'msg' => '请先删除全部子菜单'));
+          return response()->json(array('status' => 1,'msg' => '有子菜单存在'));
 
        }
 

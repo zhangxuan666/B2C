@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\models\Models\MenuModel;
+use App\Http\Models\MenuModel;
 
 class IndexController extends Controller
 {
