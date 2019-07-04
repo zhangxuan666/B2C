@@ -54,7 +54,7 @@
                 <td colspan="8"><div class="pagelist"> <a href="<?php echo e($data->previousPageUrl()); ?>">上一页</a>
 
                         <?php for($i=1;$i<=($data->lastPage());$i++): ?>
-                            <a href="http://www.b2c.com/admin/adminlist?page=<?php echo e($i); ?>"><?php echo e($i); ?></a>
+                            <a href="http://www.home.com/admin/adminlist?page=<?php echo e($i); ?>"><?php echo e($i); ?></a>
                         <?php endfor; ?>
 
                         <a href="<?php echo e($data->nextPageUrl()); ?>">下一页</a>

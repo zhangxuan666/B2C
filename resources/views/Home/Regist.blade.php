@@ -54,7 +54,7 @@
 <!--Begin Login Begin-->
 <div class="log_bg">
     <div class="top">
-        <div class="logo"><a href="Index.html"><img src="images/logo.png" /></a></div>
+        <div class="logo"><a href="/home/index"><img src="images/logo.png" /></a></div>
     </div>
 
     <div class="regist">

@@ -15,7 +15,7 @@ class IndexController extends Controller
 {
 
   
-    public function Index(Request $request)
+   public function Index(Request $request)
     {
 
 //      var_dump($token);die;
@@ -27,7 +27,6 @@ class IndexController extends Controller
 //这里显示的是 购物车有多少产品，和产品的总价格
        if(!empty($request->session()->get("gwc")))
        {
-
 
            $ann=[];
            if(!empty($request->session()->get("gwc")))
@@ -51,30 +50,6 @@ class IndexController extends Controller
                $count = count($info);
                foreach($info as $k=>$n)
                {
-=======
-           $ann=$request->session()->get("gwc");
-       }
-//       $zhonglei = count($ann);
-       $sum=0;
-       $num=0;
-       $str='';
-     
-       foreach($ann as $k=>$v)
-       {
-         
-           $str.=",".$v['goodids'];
-           $strid=substr($str,1);
-           $strid = explode(",",$strid);
-//       var_dump($strid);
-           $goodsModel = new Goods();
-           $info = $goodsModel->selectGoodss($strid);
-           $info = $info->toArray();
-           $count = count($info);
-
-           
-           foreach($info as $k=>$n)
-           {
-
 //           var_dump($n);
                    $sum=$sum + $n['goods_price']*$v['flog'];
                    $num=$v['flog'];
@@ -82,26 +57,17 @@ class IndexController extends Controller
 
            }
 
-            $datas=[
+           $datas=[
                'info'=>$info,
-
                'sum'=>$sum,
                'count'=>$count,
                'num'=>$num,
            ];
-
-                'sum'=>$sum,
-                'count'=>$count,
-                 'num'=>$num,
-            ];
-
-
            $request->session()->put("datas",$datas);
            //       return view('home.index',['data'=>$data1,'info'=>$info,'sum'=>$sum,'count'=>$count,'num'=>$num]);
            $url2=file_get_contents("http://www.home.com/api/index/carousel",'GET');
            $url3=file_get_contents("http://www.home.com/api/index/goodslist",'GET');
            $url4=file_get_contents("http://www.home.com/api/index/goods",'GET');
-
 
            $data2=json_decode($url2,true);
            $data3=json_decode($url3,true);
@@ -111,13 +77,9 @@ class IndexController extends Controller
 
        }
 
-        $request->session()->put("datas",$datas);
-///       return view('home.index',['data'=>$data1,'info'=>$info,'sum'=>$sum,'count'=>$count,'num'=>$num]);
-
-
-
 
     }
+
 
     public function regist_do(Request $request)
     {
@@ -131,7 +93,7 @@ class IndexController extends Controller
       $data=json_decode($url,true);
 
       if($data['code']==200){
-        return redirect('/home/login');
+        return redirect('home/login');
       }else{
          return back()->withErrors('注册失败');
          //注册失败
@@ -142,11 +104,9 @@ class IndexController extends Controller
 
     public function login_out(Request $request)
     {
-
           $request->session()->forget('name');
           $request->session()->forget('id');
      return redirect('home/index');
-
     }
 
     //父级找他的儿子  递归展示
@@ -209,10 +169,15 @@ class IndexController extends Controller
        return view('home.buycar_three');
     }
 
-    public function buycar_two()
+    public function buycar_two(Request $request)
     {
-      
-       return view('home.buycar_two');
+//      echo 111;die;
+        if (!empty($request->session()->get("datas")))
+        {
+            $datas = $request->session()->get("datas");
+            return view('home.buycar_two',['datas'=>$datas]);
+        }
+        return view('home.buycar_two');
     }
 
     public function login()
