@@ -98,9 +98,14 @@ class IndexController extends Controller
 
     public function brandlist()
     {
+<<<<<<< HEAD
       
        return view('home.brandlist');
     }
+=======
+      //12323
+      $data = $request->post();
+>>>>>>> c3f6417620dcc1b137b7e0a7e0ae3199528c7f62
 
     public function buycar()
     {
