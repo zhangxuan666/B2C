@@ -27,7 +27,9 @@ class Api extends Model
        Session::put('id',$list['id']);
        Session::put('token',$token);
        Session::put('time',time());
-      //return Session::get('token');
+        Session::put('name',$list['users_name']);
+
+        //return Session::get('token');
       //Session::flush('token',$token);
         DB::table('users')->where('id',$list['id'])->update($data);
 

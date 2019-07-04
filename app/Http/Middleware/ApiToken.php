@@ -17,13 +17,13 @@ class ApiToken
     public function handle($request, Closure $next)
     {
 
-<<<<<<< HEAD
+
         $token=$request->input('token');
 //        var_dump($token);die;
         $data=DB::table('users')->where('token',$token)->first();
 //        var_dump($data);die;
-=======
->>>>>>> 91754216b88c994409b01ceabdaa62228b6d88d8
+
+
        if(empty($request->get('token'))){
 
           echo "无token";die;

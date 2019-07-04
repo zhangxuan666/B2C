@@ -115,7 +115,8 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-        	<span class="fl">你好，请<a href="/home/login">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
+        		<span class="fl">
+             @include ("layout.publiclogin")
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="#">收藏夹</a>
@@ -170,28 +171,8 @@
         </form>                      
         <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
     </div>
-    <div class="i_car">
-        <div class="car_t">购物车 [ <span>{{$count}}</span> ]</div>
-        <div class="car_bg">
-            <!--Begin 购物车未登录 Begin-->
-            <div class="un_login">还未登录！<a href="Login.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
-            <!--End 购物车未登录 End-->
-            <!--Begin 购物车已登录 Begin-->
-            <ul class="cars">
-                <?php foreach ($info as $v) {?>
-                <li>
-                    <div class="img"><a href="#"><img src="<?php echo $v['goods_img']?>" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#"><?php echo $v['goods_name']?></a></div>
-                    <div class="price"><font color="#ff4e00">￥<?php echo $v['goods_price']?>x{{$num}}</font> </div>
-                </li>
-                <?php } ?>
-            </ul>
-            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>{{$sum}}</span></div>
-            <div class="price_a"><a href="{{url('/home/buycar')}}">去购物车结算</a></div>
-            <!--End 购物车已登录 End-->
-        </div>
-    </div>
-</div>
+
+  @include ("layout.publica")
 <!--End Header End--> 
 <!--Begin Menu Begin-->
 <div class="menu_bg">
@@ -204,7 +185,7 @@
                     <?php foreach ($data as $v) {?>
                 <ul>
                     <li>
-                        
+
                     	<div class="fj">
                         	<span class="n_img"><span></span><img src="images/nav1.png" /></span>
                             <span class="fl"><?php echo $v['type_name']?></span>
@@ -336,11 +317,11 @@
                             <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
                                 <div class="box">
                                     <div class="imgbg">
-                                        <a href="javascript:void(0)"><img width="160" height="136" src="<?php echo $value['goods_img']?>"></a>
+                                        <a href="/home/product?goodsid=<?php echo $value['id']?>"><img width="160" height="136" src="<?php echo $value['goods_img']?>"></a>
                                     </div>                                        
                                     <div class="name">
                                         <a href="javascript:void(0)">
-                                        <h2><?php echo $value['goods_name']?></h2>
+                                        <h2><a href="/home/product?goodsid=<?php echo $value['id']?>"><?php echo $value['goods_name']?></a></h2>
                                        <?php echo $value['goods_intro']?>
                                         </a>
                                     </div>
@@ -453,11 +434,11 @@
         	<ul>
                  <?php foreach ($res2 as $key => $value): ?>
             	<li>
-                	<div class="name"><a href="#"><?php echo $value['goods_name']?></a></div>
+                	<div class="name"><a href="/home/product?goodsid=<?php echo $value['id']?>"><?php echo $value['goods_name']?></a></div>
                     <div class="price">
                     	<font>￥<span><?php echo $value['goods_price']?></span></font> &nbsp; 26R
                     </div>
-                    <div class="img"><a href="#"><img src="<?php echo $value['goods_img']?>" width="185" height="155" /></a></div>
+                    <div class="img"><a href="/home/product?goodsid=<?php echo $value['id']?>"><img src="<?php echo $value['goods_img']?>" width="185" height="155" /></a></div>
                 </li>
                  <?php endforeach ?>                                                              
             </ul>
@@ -493,11 +474,11 @@
                             <li class="featureBox" style="overflow: hidden; float: left; width: 238px; height: 228px;">
                                 <div class="box">
                                     <div class="imgbg">
-                                        <a href="/home/product?id=<?php echo $value['id']?>"><img width="160" height="136" src="<?php echo $value['goods_img']?>"></a>
+                                        <a href="/home/product?goodsid=<?php echo $value['id']?>"><img width="160" height="136" src="<?php echo $value['goods_img']?>"></a>
                                     </div>                                        
                                     <div class="name">
                                         <a href="javascript:void(0)">
-                                        <h2><?php echo $value['goods_name']?></h2>
+                                        <h2><a href="/home/product?goodsid=<?php echo $value['id']?>"><?php echo $value['goods_name']?></a></h2>
                                        <?php echo $value['goods_intro']?>
                                         </a>
                                     </div>
