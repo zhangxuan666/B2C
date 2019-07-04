@@ -12,23 +12,7 @@ class IndexController extends Controller
 {
     public function Index()
     {
-<<<<<<< HEAD
-      
-       return view('home.index');
-    }
-
-    public function sell()
-    {
-<<<<<<< HEAD
-      
-       return view('home.sell');
-=======
-      //哈哈
-=======
-      //哈哈1212
->>>>>>> 7d43ade4301b35e8c792275a3a79ae40e5d6471a
-//      var_dump($token);die;
-       $url=file_get_contents("http://www.home.com/api/index/typelist");
+  $url=file_get_contents("http://www.home.com/api/index/typelist");
 //      var_dump($url);die;
       $data=json_decode($url,true);
       $data1 = $this->getTherr($data['data'],0);
@@ -85,9 +69,13 @@ class IndexController extends Controller
            return view('home.index',['data'=>$data1,'res'=>$data2['data'],'res1'=>$data3['data'],'res2'=>$data4['data'],'info'=>$info,'sum'=>$sum,'count'=>$count,'num'=>$num]);
 
        }
+      
+       
+    }
 
-
->>>>>>> 3510c36407cf9448ba9480783d67c3ed50258871
+    public function sell()
+    {
+       return view('home.sell');
     }
 
     public function brand()
