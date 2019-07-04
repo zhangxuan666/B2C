@@ -19,10 +19,14 @@ class IndexController extends Controller
 
     public function sell()
     {
+<<<<<<< HEAD
       
        return view('home.sell');
 =======
       //哈哈
+=======
+      //哈哈1212
+>>>>>>> 7d43ade4301b35e8c792275a3a79ae40e5d6471a
 //      var_dump($token);die;
        $url=file_get_contents("http://www.home.com/api/index/typelist");
 //      var_dump($url);die;
