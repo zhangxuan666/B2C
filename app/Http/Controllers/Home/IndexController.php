@@ -12,8 +12,26 @@ class IndexController extends Controller
 {
     public function Index()
     {
+
       
        return view('home.index');
+
+    }
+
+    //父级找他的儿子  递归展示
+    public function getTherr($data,$parentid=0)
+    {
+        $arr=[];
+         foreach ($data as $v)
+         {
+                if($v['parent_id']==$parentid)
+                {
+                    $v['son'] = $this->getTherr($data,$v['id']);
+                    $arr[]=$v;
+                }
+         }
+         return $arr;
+
     }
 
     public function sell()
