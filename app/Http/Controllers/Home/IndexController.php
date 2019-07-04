@@ -10,24 +10,72 @@ use DB;
 
 class IndexController extends Controller
 {
-
-    //父级找他的儿子  递归展示
-    public function getTherr($data,$parentid=0)
+    public function Index()
     {
-        $arr=[];
-         foreach ($data as $v)
-         {
-                if($v['parent_id']==$parentid)
-                {
-                    $v['son'] = $this->getTherr($data,$v['id']);
-                    $arr[]=$v;
-                }
-         }
-         return $arr;
-
+      
+       return view('home.index');
     }
 
-  
+    public function sell()
+    {
+      
+       return view('home.sell');
+    }
+
+    public function brand()
+    {
+      
+       return view('home.brand');
+    }
+
+    public function brandlist()
+    {
+      
+       return view('home.brandlist');
+    }
+
+    public function buycar()
+    {
+      
+       return view('home.buycar');
+    }
+
+    public function buycar_three()
+    {
+      
+       return view('home.buycar_three');
+    }
+
+    public function buycar_two()
+    {
+      
+       return view('home.buycar_two');
+    }
+
+    public function login()
+    {
+      
+       return view('home.login');
+    }
+
+    public function product()
+    {
+      
+       return view('home.product');
+    }
+
+
+    public function category()
+    {
+      
+       return view('home.category');
+    }
+
+    public function categorylist()
+    {
+      
+       return view('home.categorylist');
+    }
 
     public function member(Request $request)
     {
