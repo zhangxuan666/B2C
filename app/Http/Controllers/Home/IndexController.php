@@ -83,7 +83,7 @@ class IndexController extends Controller
 
     public function regist_do(Request $request)
     {
-      
+      //12323
       $data = $request->post();
 
       $this->Validator($data)->validate();
