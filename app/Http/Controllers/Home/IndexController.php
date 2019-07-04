@@ -12,69 +12,13 @@ class IndexController extends Controller
 {
     public function Index()
     {
-  $url=file_get_contents("http://www.home.com/api/index/typelist");
-//      var_dump($url);die;
-      $data=json_decode($url,true);
-      $data1 = $this->getTherr($data['data'],0);
-//       var_dump($data1);die;
-//这里显示的是 购物车有多少产品，和产品的总价格
-       if(!empty($request->session()->get("gwc")))
-       {
-
-           $ann=[];
-           if(!empty($request->session()->get("gwc")))
-           {
-               $ann=$request->session()->get("gwc");
-           }
-
-           $sum=0;
-           $num=0;
-           $str='';
-           foreach($ann as $k=>$v)
-           {
-//           var_dump($ann);
-               $str.=",".$v['goodids'];
-               $strid=substr($str,1);
-               $strid = explode(",",$strid);
-//       var_dump($strid);
-               $goodsModel = new Goods();
-               $info = $goodsModel->selectGoodss($strid);
-               $info = $info->toArray();
-               $count = count($info);
-               foreach($info as $k=>$n)
-               {
-//           var_dump($n);
-                   $sum=$sum + $n['goods_price']*$v['flog'];
-                   $num=$v['flog'];
-               }
-
-           }
-
-           $datas=[
-               'info'=>$info,
-               'sum'=>$sum,
-               'count'=>$count,
-               'num'=>$num,
-           ];
-           $request->session()->put("datas",$datas);
-           //       return view('home.index',['data'=>$data1,'info'=>$info,'sum'=>$sum,'count'=>$count,'num'=>$num]);
-           $url2=file_get_contents("http://www.home.com/api/index/carousel",'GET');
-           $url3=file_get_contents("http://www.home.com/api/index/goodslist",'GET');
-           $url4=file_get_contents("http://www.home.com/api/index/goods",'GET');
-
-           $data2=json_decode($url2,true);
-           $data3=json_decode($url3,true);
-           $data4=json_decode($url4,true);
-
-           return view('home.index',['data'=>$data1,'res'=>$data2['data'],'res1'=>$data3['data'],'res2'=>$data4['data'],'info'=>$info,'sum'=>$sum,'count'=>$count,'num'=>$num]);
-
-       }
       
-       
+       return view('home.index');
     }
 
     public function sell()
     {
+      
        return view('home.sell');
     }
 
@@ -86,14 +30,9 @@ class IndexController extends Controller
 
     public function brandlist()
     {
-<<<<<<< HEAD
       
        return view('home.brandlist');
     }
-=======
-      //12323
-      $data = $request->post();
->>>>>>> c3f6417620dcc1b137b7e0a7e0ae3199528c7f62
 
     public function buycar()
     {
