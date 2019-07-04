@@ -104,7 +104,7 @@ class IndexController extends Controller
 
     public function login_out(Request $request)
     {
-        //tuichudenglu
+        //tui
           $request->session()->forget('name');
           $request->session()->forget('id');
      return redirect('home/index');
