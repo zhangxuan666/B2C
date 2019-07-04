@@ -10,17 +10,6 @@ use DB;
 
 class IndexController extends Controller
 {
-    public function Index()
-    {
-<<<<<<< HEAD
-      //12132
-=======
-
-      
->>>>>>> b1b62ec17def3ccda9999d5893c5ddaab9d2332b
-       return view('home.index');
-
-    }
 
     //父级找他的儿子  递归展示
     public function getTherr($data,$parentid=0)
@@ -38,69 +27,7 @@ class IndexController extends Controller
 
     }
 
-    public function sell()
-    {
-      
-       return view('home.sell');
-    }
-
-    public function brand()
-    {
-      
-       return view('home.brand');
-    }
-
-    public function brandlist()
-    {
-
-      
-       return view('home.brandlist');
-    }
-
-
-   
-    public function buycar()
-    {
-      
-       return view('home.buycar');
-    }
-
-    public function buycar_three()
-    {
-      
-       return view('home.buycar_three');
-    }
-
-    public function buycar_two()
-    {
-      
-       return view('home.buycar_two');
-    }
-
-    public function login()
-    {
-      
-       return view('home.login');
-    }
-
-    public function product()
-    {
-      
-       return view('home.product');
-    }
-
-
-    public function category()
-    {
-      
-       return view('home.category');
-    }
-
-    public function categorylist()
-    {
-      
-       return view('home.categorylist');
-    }
+  
 
     public function member(Request $request)
     {
