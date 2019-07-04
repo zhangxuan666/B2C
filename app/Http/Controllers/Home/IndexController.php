@@ -12,7 +12,7 @@ class IndexController extends Controller
 {
     public function Index()
     {
-      
+      //12132
        return view('home.index');
     }
 
