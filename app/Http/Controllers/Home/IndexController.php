@@ -104,6 +104,7 @@ class IndexController extends Controller
 
     public function login_out(Request $request)
     {
+        //123123//555
           $request->session()->forget('name');
           $request->session()->forget('id');
      return redirect('home/index');
