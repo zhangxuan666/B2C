@@ -12,14 +12,14 @@
         </script>
     <![endif]-->    
     <script type="text/javascript" src="js/jquery-1.11.1.min_044d0927.js"></script>
-	<script type="text/javascript" src="js/jquery.bxslider_e88acd1b.js"></script>
+    <script type="text/javascript" src="js/jquery.bxslider_e88acd1b.js"></script>
     
     <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>    
         
-	<script type="text/javascript" src="js/select.js"></script>
+    <script type="text/javascript" src="js/select.js"></script>
     
-	<script type="text/javascript" src="js/lrscroll.js"></script>
+    <script type="text/javascript" src="js/lrscroll.js"></script>
     
     <script type="text/javascript" src="js/iban.js"></script>
     <script type="text/javascript" src="js/fban.js"></script>
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="js/hban.js"></script>
     <script type="text/javascript" src="js/tban.js"></script>
     
-	<script type="text/javascript" src="js/lrscroll_1.js"></script>
+    <script type="text/javascript" src="js/lrscroll_1.js"></script>
     
     
 <title>尤洪</title>
@@ -37,16 +37,16 @@
 <body>  
 <!--Begin Header Begin-->
 <div class="soubg">
-	<div class="sou">
-    	<!--Begin 所在收货地区 Begin-->
-    	<span class="s_city_b">
-        	<span class="fl">送货至：</span>
+    <div class="sou">
+        <!--Begin 所在收货地区 Begin-->
+        <span class="s_city_b">
+            <span class="fl">送货至：</span>
             <span class="s_city">
-            	<span>四川</span>
+                <span>四川</span>
                 <div class="s_city_bg">
-                	<div class="s_city_t"></div>
+                    <div class="s_city_t"></div>
                     <div class="s_city_c">
-                    	<h2>请选择所在的收货地区</h2>
+                        <h2>请选择所在的收货地区</h2>
                         <table border="0" class="c_tab" style="width:235px; margin-top:10px;" cellspacing="0" cellpadding="0">
                           <tr>
                             <th>A</th>
@@ -115,28 +115,28 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-        		<span class="fl">
+                <span class="fl">
              @include ("layout.publiclogin")
-        	<span class="ss">
-            	<div class="ss_list">
-                	<a href="#">收藏夹</a>
+            <span class="ss">
+                <div class="ss_list">
+                    <a href="#">收藏夹</a>
                     <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
+                        <div class="s_city_t"></div>
                         <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="#">我的收藏夹</a></li>
+                            <ul>
+                                <li><a href="#">我的收藏夹</a></li>
                                 <li><a href="#">我的收藏夹</a></li>
                             </ul>
                         </div>
                     </div>     
                 </div>
                 <div class="ss_list">
-                	<a href="#">客户服务</a>
+                    <a href="#">客户服务</a>
                     <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
+                        <div class="s_city_t"></div>
                         <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="#">客户服务</a></li>
+                            <ul>
+                                <li><a href="#">客户服务</a></li>
                                 <li><a href="#">客户服务</a></li>
                                 <li><a href="#">客户服务</a></li>
                             </ul>
@@ -144,12 +144,12 @@
                     </div>    
                 </div>
                 <div class="ss_list">
-                	<a href="#">网站导航</a>
+                    <a href="#">网站导航</a>
                     <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
+                        <div class="s_city_t"></div>
                         <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="#">网站导航</a></li>
+                            <ul>
+                                <li><a href="#">网站导航</a></li>
                                 <li><a href="#">网站导航</a></li>
                             </ul>
                         </div>
@@ -165,8 +165,8 @@
 <div class="top">
     <div class="logo"><a href="Index.html"><img src="images/logo.png" /></a></div>
     <div class="search">
-    	<form>
-        	<input type="text" value="" class="s_ipt" />
+        <form>
+            <input type="text" value="" class="s_ipt" />
             <input type="submit" value="搜索" class="s_btn" />
         </form>                      
         <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
@@ -176,18 +176,18 @@
 <!--End Header End--> 
 <!--Begin Menu Begin-->
 <div class="menu_bg">
-	<div class="menu">
-    	<!--Begin 商品分类详情 Begin-->    
-    	<div class="nav">
-        	<div class="nav_t">全部商品分类</div>
+    <div class="menu">
+        <!--Begin 商品分类详情 Begin-->    
+        <div class="nav">
+            <div class="nav_t">全部商品分类</div>
             <div class="leftNav">
                 <ul>
                     <?php foreach ($data as $v) {?>
                 <ul>
                     <li>
 
-                    	<div class="fj">
-                        	<span class="n_img"><span></span><img src="images/nav1.png" /></span>
+                        <div class="fj">
+                            <span class="n_img"><span></span><img src="images/nav1.png" /></span>
                             <span class="fl"><?php echo $v['type_name']?></span>
 
                         </div>
@@ -220,8 +220,8 @@
             </div>
         </div>  
         <!--End 商品分类详情 End-->
-    	<ul class="menu_r">
-        	<li><a href="Index.html">首页</a></li>
+        <ul class="menu_r">
+            <li><a href="Index.html">首页</a></li>
             <li><a href="Food.html">美食</a></li>
             <li><a href="Fresh.html">生鲜</a></li>
             <li><a href="HomeDecoration.html">家居</a></li>
@@ -235,16 +235,16 @@
 </div>
 <!--End Menu End--> 
 <div class="i_bg bg_color">
-	<div class="i_ban_bg">
-		<!--Begin Banner Begin-->
-    	<div class="banner">    	
+    <div class="i_ban_bg">
+        <!--Begin Banner Begin-->
+        <div class="banner">        
             <div class="top_slide_wrap">
                 <ul class="slide_box bxslider">
                    <?php foreach ($res as $key => $value): ?>
                        <li><img src="<?php echo $value['img']?>" width="740" height="401" /></li>
                    <?php endforeach ?>
                     
-                </ul>	
+                </ul>   
                 <div class="op_btns clearfix">
                     <a href="#" class="op_btn op_prev"><span></span></a>
                     <a href="#" class="op_btn op_next"><span></span></a>
@@ -262,18 +262,18 @@
         </script>
         <!--End Banner End-->
         <div class="inews">
-        	<div class="news_t">
-            	<span class="fr"><a href="#">更多 ></a></span>新闻资讯
+            <div class="news_t">
+                <span class="fr"><a href="#">更多 ></a></span>新闻资讯
             </div>
             <ul>
-            	<li><span>[ 特惠 ]</span><a href="#">掬一轮明月 表无尽惦念</a></li>
-            	<li><span>[ 公告 ]</span><a href="#">好奇金装成长裤新品上市</a></li>
-            	<li><span>[ 特惠 ]</span><a href="#">大牌闪购 · 抢！</a></li>
-            	<li><span>[ 公告 ]</span><a href="#">发福利 买车就抢千元油卡</a></li>
-            	<li><span>[ 公告 ]</span><a href="#">家电低至五折</a></li>
+                <li><span>[ 特惠 ]</span><a href="#">掬一轮明月 表无尽惦念</a></li>
+                <li><span>[ 公告 ]</span><a href="#">好奇金装成长裤新品上市</a></li>
+                <li><span>[ 特惠 ]</span><a href="#">大牌闪购 · 抢！</a></li>
+                <li><span>[ 公告 ]</span><a href="#">发福利 买车就抢千元油卡</a></li>
+                <li><span>[ 公告 ]</span><a href="#">家电低至五折</a></li>
             </ul>
             <div class="charge_t">
-            	话费充值<div class="ch_t_icon"></div>
+                话费充值<div class="ch_t_icon"></div>
             </div>
             <form>
             <table border="0" style="width:205px; margin-top:10px;" cellspacing="0" cellpadding="0">
@@ -284,7 +284,7 @@
               <tr height="35">
                 <td>面值</td>
                 <td>
-                	<select class="jj" name="city">
+                    <select class="jj" name="city">
                       <option value="0" selected="selected">100元</option>
                       <option value="1">50元</option>
                       <option value="2">30元</option>
@@ -344,58 +344,58 @@
     <!--Begin 限时特卖 Begin-->
     <!--
     <div class="i_t mar_10">
-    	<span class="fl">限时特卖</span>
+        <span class="fl">限时特卖</span>
         <span class="i_mores fr"><a href="#">更多</a></span>
     </div>
     <div class="content">
 
         <div class="sell_right">
-        	<div class="sell_1">
-            	<div class="s_img"><a href="#"><img src="images/tm_1.jpg" width="185" height="155" /></a></div>
-            	<div class="s_price">￥<span>89</span></div>
+            <div class="sell_1">
+                <div class="s_img"><a href="#"><img src="images/tm_1.jpg" width="185" height="155" /></a></div>
+                <div class="s_price">￥<span>89</span></div>
                 <div class="s_name">
-                	<h2><a href="#">沙宣洗发水</a></h2>
+                    <h2><a href="#">沙宣洗发水</a></h2>
                     倒计时：<span>1200</span> 时 <span>30</span> 分 <span>28</span> 秒
                 </div>
             </div>
             <div class="sell_2">
-            	<div class="s_img"><a href="#"><img src="images/tm_2.jpg" width="185" height="155" /></a></div>
-            	<div class="s_price">￥<span>289</span></div>
+                <div class="s_img"><a href="#"><img src="images/tm_2.jpg" width="185" height="155" /></a></div>
+                <div class="s_price">￥<span>289</span></div>
                 <div class="s_name">
-                	<h2><a href="#">德芙巧克力</a></h2>
+                    <h2><a href="#">德芙巧克力</a></h2>
                     倒计时：<span>1200</span> 时 <span>30</span> 分 <span>28</span> 秒
                 </div>
             </div>
             <div class="sell_b1">
-            	<div class="sb_img"><a href="#"><img src="images/tm_b1.jpg" width="242" height="356" /></a></div>
-            	<div class="s_price">￥<span>289</span></div>
+                <div class="sb_img"><a href="#"><img src="images/tm_b1.jpg" width="242" height="356" /></a></div>
+                <div class="s_price">￥<span>289</span></div>
                 <div class="s_name">
-                	<h2><a href="#">东北大米</a></h2>
+                    <h2><a href="#">东北大米</a></h2>
                     倒计时：<span>1200</span> 时 <span>30</span> 分 <span>28</span> 秒
                 </div>
             </div>
 
             <div class="sell_3">
-            	<div class="s_img"><a href="#"><img src="images/tm_3.jpg" width="185" height="155" /></a></div>
-            	<div class="s_price">￥<span>289</span></div>
+                <div class="s_img"><a href="#"><img src="images/tm_3.jpg" width="185" height="155" /></a></div>
+                <div class="s_price">￥<span>289</span></div>
                 <div class="s_name">
-                	<h2><a href="#">迪奥香水</a></h2>
+                    <h2><a href="#">迪奥香水</a></h2>
                     倒计时：<span>1200</span> 时 <span>30</span> 分 <span>28</span> 秒
                 </div>
             </div>
             <div class="sell_4">
-            	<div class="s_img"><a href="#"><img src="images/tm_4.jpg" width="185" height="155" /></a></div>
-            	<div class="s_price">￥<span>289</span></div>
+                <div class="s_img"><a href="#"><img src="images/tm_4.jpg" width="185" height="155" /></a></div>
+                <div class="s_price">￥<span>289</span></div>
                 <div class="s_name">
-                	<h2><a href="#">美妆</a></h2>
+                    <h2><a href="#">美妆</a></h2>
                     倒计时：<span>1200</span> 时 <span>30</span> 分 <span>28</span> 秒
                 </div>
             </div>
             <div class="sell_b2">
-            	<div class="sb_img"><a href="#"><img src="images/tm_b2.jpg" width="242" height="356" /></a></div>
-            	<div class="s_price">￥<span>289</span></div>
+                <div class="sb_img"><a href="#"><img src="images/tm_b2.jpg" width="242" height="356" /></a></div>
+                <div class="s_price">￥<span>289</span></div>
                 <div class="s_name">
-                	<h2><a href="#">美妆</a></h2>
+                    <h2><a href="#">美妆</a></h2>
                     倒计时：<span>1200</span> 时 <span>30</span> 分 <span>28</span> 秒
                 </div>
             </div>
@@ -420,23 +420,23 @@
     -->
     <!--End 限时特卖 End-->
     <div class="content mar_20">
-    	<img src="images/mban_1.jpg" width="1200" height="110" />
+        <img src="images/mban_1.jpg" width="1200" height="110" />
     </div>
-	<!--Begin 进口 生鲜 Begin-->
+    <!--Begin 进口 生鲜 Begin-->
     <div class="i_t mar_10">
-    	<span class="floor_num">❤</span>
-    	<span class="fl">全场 <b>·</b> 商品</span>                
+        <span class="floor_num">❤</span>
+        <span class="fl">全场 <b>·</b> 商品</span>                
         <span class="i_mores fr"><a href="#">进口咖啡</a>&nbsp; &nbsp; &nbsp; <a href="#">进口酒</a>&nbsp; &nbsp; &nbsp; <a href="#">进口母婴</a>&nbsp; &nbsp; &nbsp; <a href="#">新鲜蔬菜</a>&nbsp; &nbsp; &nbsp; <a href="#">新鲜水果</a></span>
     </div>
     <div class="content">
 
         <div class="fresh_mid">
-        	<ul>
+            <ul>
                  <?php foreach ($res2 as $key => $value): ?>
-            	<li>
-                	<div class="name"><a href="/home/product?goodsid=<?php echo $value['id']?>"><?php echo $value['goods_name']?></a></div>
+                <li>
+                    <div class="name"><a href="/home/product?goodsid=<?php echo $value['id']?>"><?php echo $value['goods_name']?></a></div>
                     <div class="price">
-                    	<font>￥<span><?php echo $value['goods_price']?></span></font> &nbsp; 26R
+                        <font>￥<span><?php echo $value['goods_price']?></span></font> &nbsp; 26R
                     </div>
                     <div class="img"><a href="/home/product?goodsid=<?php echo $value['id']?>"><img src="<?php echo $value['goods_img']?>" width="185" height="155" /></a></div>
                 </li>
@@ -462,9 +462,9 @@
     <!--End 数码家电 End-->
     <!--Begin 猜你喜欢 Begin-->
     <div class="i_t mar_10">
-    	<span class="fl">特价活动</span>
+        <span class="fl">特价活动</span>
     </div>    
-    <div class="like">        	
+    <div class="like">          
         <div id="featureContainer1">
             <div id="feature1">
                 <div id="block1">
@@ -507,7 +507,7 @@
                 <td><h2>正品保障</h2>正品行货  放心购买</td>
               </tr>
             </table>
-			<table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
+            <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="72"><img src="images/b2.png" width="62" height="62" /></td>
                 <td><h2>满38包邮</h2>满38包邮 免运费</td>
@@ -528,8 +528,8 @@
         </div>
     </div>
     <div class="b_nav">
-    	<dl>                                                                                            
-        	<dt><a href="#">新手上路</a></dt>
+        <dl>                                                                                            
+            <dt><a href="#">新手上路</a></dt>
             <dd><a href="#">售后流程</a></dd>
             <dd><a href="#">购物流程</a></dd>
             <dd><a href="#">订购方式</a></dd>
@@ -537,32 +537,32 @@
             <dd><a href="#">推荐分享说明</a></dd>
         </dl>
         <dl>
-        	<dt><a href="#">配送与支付</a></dt>
+            <dt><a href="#">配送与支付</a></dt>
             <dd><a href="#">货到付款区域</a></dd>
             <dd><a href="#">配送支付查询</a></dd>
             <dd><a href="#">支付方式说明</a></dd>
         </dl>
         <dl>
-        	<dt><a href="#">会员中心</a></dt>
+            <dt><a href="#">会员中心</a></dt>
             <dd><a href="#">资金管理</a></dd>
             <dd><a href="#">我的收藏</a></dd>
             <dd><a href="#">我的订单</a></dd>
         </dl>
         <dl>
-        	<dt><a href="#">服务保证</a></dt>
+            <dt><a href="#">服务保证</a></dt>
             <dd><a href="#">退换货原则</a></dd>
             <dd><a href="#">售后服务保证</a></dd>
             <dd><a href="#">产品质量保证</a></dd>
         </dl>
         <dl>
-        	<dt><a href="#">联系我们</a></dt>
+            <dt><a href="#">联系我们</a></dt>
             <dd><a href="#">网站故障报告</a></dd>
             <dd><a href="#">购物咨询</a></dd>
             <dd><a href="#">投诉与建议</a></dd>
         </dl>
         <div class="b_tel_bg">
-        	<a href="#" class="b_sh1">新浪微博</a>            
-        	<a href="#" class="b_sh2">腾讯微博</a>
+            <a href="#" class="b_sh1">新浪微博</a>            
+            <a href="#" class="b_sh2">腾讯微博</a>
             <p>
             服务热线：<br />
             <span>400-123-4567</span>
@@ -574,10 +574,10 @@
         </div>
     </div>    
     <div class="btmbg">
-		<div class="btm">
-        	备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
+        <div class="btm">
+            备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
             <img src="images/b_1.gif" width="98" height="33" /><img src="images/b_2.gif" width="98" height="33" /><img src="images/b_3.gif" width="98" height="33" /><img src="images/b_4.gif" width="98" height="33" /><img src="images/b_5.gif" width="98" height="33" /><img src="images/b_6.gif" width="98" height="33" />
-        </div>    	
+        </div>      
     </div>
     <!--End Footer End -->    
 </div>
