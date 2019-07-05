@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <link type="text/css" rel="stylesheet" href="css/style.css" />
-  <base href="/home/">
-  
+<base href="/home/">
+
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
     <!--[if IE 6]>
     <script src="js/iepng.js" type="text/javascript"></script>
         <script type="text/javascript">
@@ -14,6 +14,7 @@
         
     <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>    
+   
         
 	<script type="text/javascript" src="js/select.js"></script>
         
@@ -26,68 +27,67 @@
 
 
 		<div class="m_right">
-        	<div class="m_des">
-            	<table border="0" style="width:870px; line-height:22px;" cellspacing="0" cellpadding="0">
-                  <tr valign="top">
-                    <td width="115"><img src="images/user.jpg" width="90" height="90" /></td>
-                    <td>
-                    	<div class="m_user" style="font-size: 22px">{{$res['nick']}}</div>
-                        <p>
-                            等级：普通用户 <br />
-                            注册时间: {{date('Y-m-d H:m', $res['add_time'])}}
-                        </p>
-                        <div class="m_notice">
-                        	<a href="/home/">用户中心公告！</a>
-                        </div>
-                    </td>
-                  </tr>
-                </table>	
+            
+
+            <div class="mem_tit">
+            	<p><span style="font-size: 17px">修改地址：</span></p>
             </div>
-            
-            
-            <a href="/home/member_update" class="add_b">编辑信息</a>
-            <div class="mem_t" style="color: orange; font-size: 18">账号资料：</div>
-            <table border="0" class="acc_tab" style="width:870px;" cellspacing="0" cellpadding="0">
-                <tr>
-                <td class="td_l">用户账号：  </td>
-                <td>{{$res['users_account']}}</td>
+
+            <form class="form-x" action="/home/address_updatedo" method="post">
+              @Csrf
+              @foreach($addr as $vo)
+            <table border="0" class="add_tab" style="width:930px;"  cellspacing="0" cellpadding="0">
+                <input type="hidden" name="id" value="{{$vo->id}}">
+              <tr>
+                <td width="135" align="right">配送地区</td>
+                <td colspan="3" style="font-family:'宋体';">
+                	<span style="font-size: 18px">{{$vo->area}}</span>
+                </td>
               </tr>
               <tr>
-                <td class="td_l">用户名称： </td>
-                <td>{{$res['users_name']}}</td>
+                <td align="right">收货人姓名</td>
+                <td style="font-family:'宋体';"><input type="text"  class="add_ipt" name="name" value="{{$vo->name}}" />（必填）</td>
+                <td align="right">地址标签</td>
+                <td>
+                  <select name="tag" style="width: 130px">
+                    <option value="其他">其他</option>
+                    <option value="学校">学校</option>
+                    <option value="家">家</option>
+                    <option value="公司">公司</option>
+                  </select>（选填）
+                </td>
+                
               </tr>
               <tr>
-                <td class="td_l">用户性别： </td>
-                @if (($res['sex']) == 1)
-                <td>男</td>
-                @elseif(($res['sex']) == 0)
-                <td>女</td>
-                @else
-                <td>保密</td>
-                @endif
+                <td align="right">详细地址</td>
+                <td style="font-family:'宋体';"><input type="text" class="add_ipt" name="address" value="{{$vo->address}}" />（必填）</td>
+                <td align="right">邮政编码</td>
+                <td style="font-family:'宋体';"><input type="text" class="add_ipt" name="code" value="{{$vo->code}}" />（选填）</td>
               </tr>
               <tr>
-                <td class="td_l">用户年龄： </td>
-                <td>{{$res['age']}}</td>
+                <td align="right">手机</td>
+                <td style="font-family:'宋体';"><input type="text" class="add_ipt" name="phone" value="{{$vo->phone}}" />（必填）</td>
+                <td align="right">标志性建筑</td>
+                <td style="font-family:'宋体';"><input type="text" class="add_ipt" name="symbol" value="{{$vo->symbol}}" />（选填）</td>
               </tr>
-              <tr>
-                <td class="td_l">手机号： </td>
-                <td>{{$res['phone']}}</td>
-              </tr>
-              <tr>
-                <td class="td_l">邮箱： </td>
-                <td>{{$res['email']}}</td>
-              </tr>
-              <tr>
-                <td class="td_l">出生年月： </td>
-                <td>{{$res['birthday']}}</td>
-              </tr>
-            </table>
+              </table>
+              @endforeach
+              <div>
+                <tr><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <td><input type="reset" name="" value="重置"></td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <td><input type="submit" name="" value="修改"></td>
+                </tr>
+              </div>
+            </form>
+
+           	
+           
 
             
         </div>
     </div>
-    
 	<!--End 用户中心 End--> 
     <!--Begin Footer Begin -->
     <div class="b_btm_bg b_btm_c">
@@ -174,7 +174,67 @@
 </div>
 
 </body>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript">
 
+$(function() {  
+  // alert(1);
+    //页面初始，加载所有的省份  
+    $.ajax({  
+        type: "get",  
+        url: "/region",  
+        data: {"type":1},  
+        dataType: "json",  
+        success: function(data) {  
+
+
+            //遍历json数据，组装下拉选框添加到html中
+            $("#provinces").html("<option value=''>请选择省</option>");  
+            $.each(data, function(i, item) {  
+                $("#provinces").append("<option value='" + item.area_id + "'>" + item.area_name + "</option>");  
+            });
+        }  
+    });  
+
+
+    //监听省select框
+    $("#provinces").change(function() {  
+        $.ajax({  
+            type: "get",  
+            url: "/region",
+            data: {"pnum": $(this).val(),"type":2},
+            dataType: "json",  
+            success: function(data) {  
+                //遍历json数据，组装下拉选框添加到html中
+                $("#citys").html("<option value=''>请选择市</option>");  
+                $.each(data, function(i, item) {  
+                    $("#citys").append("<option value='" + item.area_id + "'>" + item.area_name + "</option>");  
+                });  
+            }  
+        });  
+    });  
+
+
+    //监听市select框
+    $("#citys").change(function() {  
+        $.ajax({  
+            type: "get",  
+            url: "/region",
+            data: {"cnum": $(this).val(),"type":3},  
+            dataType: "json",  
+            success: function(data) {  
+                //遍历json数据，组装下拉选框添加到html中
+                $("#countys").html("<option value=''>请选择区</option>");  
+                $.each(data, function(i, item) {  
+                    $("#countys").append("<option value='" + item.area_id + "'>" + item.area_name + "</option>");  
+                });  
+            }  
+        });  
+    });  
+});  
+
+
+</script>
 
 <!--[if IE 6]>
 <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>

@@ -87,7 +87,7 @@ class Api extends Model
     }
 
     public function order($id){
-        $res=DB::table('orders')->where('id',$id)->get()->toArray();
+        $res=DB::table('orders')->where('id',$id)->get();
         if($res){
         return  response()->json(['code'=>200,'msg'=>"订单展示成功",'data'=>$res])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
         }else{
@@ -167,7 +167,10 @@ class Api extends Model
 
     //收藏展示
     public function collect($id){
-        $res=DB::table('collect')->where('users_id',$id)->get()->toArray();
+        $res=DB::table('collect')->where('users_id',$id)
+                                ->join('goods', 'collect.goods_id', '=', 'goods.id')
+                                ->get();
+
         if($res){
         return response()->json(['code'=>200,'msg'=>"收藏展示成功",'data'=>$res])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
         }else{
@@ -218,6 +221,40 @@ class Api extends Model
         }
 
     }
+
+    //收货地址展示
+    public function address($id){
+        $res=DB::table('user_addr')->where('user_id',$id)->get();
+        if($res){
+        return response()->json(['code'=>200,'msg'=>"收藏展示成功",'data'=>$res])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+        }else{
+        return response()->json(['code'=>211,'msg'=>"收藏展示失败"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+        }
+    }
+
+
+    //收货地址删除
+    public function address_del($id){
+        $res=DB::table('user_addr')->where('id',$id)->delete();
+        if($res){
+            return response()->json(['code'=>200,'msg'=>"收货地址删除成功"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+        }else{
+            return response()->json(['code'=>212,'msg'=>"收货地址删除失败"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);     
+        }
+    }
+
+
+    //收货地址添加
+    public function address_add($data){
+        $res=DB::table('user_addr')->insert($data);
+        if($res){
+            return response()->json(['code'=>200,'msg'=>"添加收货地址成功"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+        }else{
+            return response()->json(['code'=>213,'msg'=>"添加收货地址失败"])->setEncodingOptions(JSON_UNESCAPED_UNICODE);     
+        }
+        
+    }
+
 
 
 

@@ -174,10 +174,40 @@ Route::any('/home/product','Home\IndexController@product');
 Route::any('/home/addgou','Home\IndexController@addgouwuche');
 
 Route::any('/home/category','Home\IndexController@category');
+
+
+Route::any('/home/member_update','Home\IndexController@member_update');
+Route::any('/home/update_do','Home\IndexController@update_do');
+
+
+Route::any('/home/member_order','Home\IndexController@member_order');
+
+
 Route::any('/home/member','Home\IndexController@member');
+//收货地址
 Route::any('/home/member_address','Home\IndexController@member_address');
-Route::any('/home/member_cash','Home\IndexController@member_cash');
+//收货地址删除
+Route::any('/home/address_del','Home\IndexController@address_del');
+//添加收货地址
+Route::any('/home/member_addressadd','Home\IndexController@member_addressadd');
+//添加收货地址执行
+Route::any('/home/address_adddo','Home\IndexController@address_adddo');
+//修改收货地址
+Route::any('/home/address_update','Home\IndexController@address_update');
+//修改收货地址执行
+Route::any('/home/address_updatedo','Home\IndexController@address_updatedo');
+
 Route::any('/home/member_collect','Home\IndexController@member_collect');
+
+
+Route::any('/home/collect_del','Home\IndexController@collect_del');
+
+Route::any('/home/recommend','Home\IndexController@recommend');
+
+Route::get('region', 'Home\IndexController@region');
+
+
+Route::any('/home/member_cash','Home\IndexController@member_cash');
 Route::any('/home/member_commission','Home\IndexController@member_commission');
 Route::any('/home/member_links','Home\IndexController@member_links');
 Route::any('/home/member_member','Home\IndexController@member_member');
@@ -185,7 +215,6 @@ Route::any('/home/member_member_list','Home\IndexController@member_member_list')
 Route::any('/home/member_money','Home\IndexController@member_money');
 Route::any('/home/member_money_charge','Home\IndexController@member_money_charge');
 Route::any('/home/member_money_pay','Home\IndexController@member_money_pay');
-Route::any('/home/member_order','Home\IndexController@member_order');
 Route::any('/home/member_packet','Home\IndexController@member_packet');
 Route::any('/home/member_results','Home\IndexController@member_results');
 Route::any('/home/member_safe','Home\IndexController@member_safe');
@@ -194,6 +223,7 @@ Route::any('/home/regist','Home\IndexController@regist');
 Route::any('/home/regist_do','Home\IndexController@regist_do');
 Route::any('/home/login_out','Home\IndexController@login_out');
 Route::any('/home/selldetails','Home\IndexController@selldetails');
+
 
 
 

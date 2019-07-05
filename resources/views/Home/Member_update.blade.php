@@ -24,70 +24,68 @@
 <!--Begin Header Begin-->
 @include('public.header')
 
-
+        
 		<div class="m_right">
-        	<div class="m_des">
-            	<table border="0" style="width:870px; line-height:22px;" cellspacing="0" cellpadding="0">
-                  <tr valign="top">
-                    <td width="115"><img src="images/user.jpg" width="90" height="90" /></td>
-                    <td>
-                    	<div class="m_user" style="font-size: 22px">{{$res['nick']}}</div>
-                        <p>
-                            等级：普通用户 <br />
-                            注册时间: {{date('Y-m-d H:m', $res['add_time'])}}
-                        </p>
-                        <div class="m_notice">
-                        	<a href="/home/">用户中心公告！</a>
-                        </div>
-                    </td>
-                  </tr>
-                </table>	
-            </div>
             
+            <form class="form-x" action="/home/update_do" method="post">
+            @Csrf
+            @foreach($users as $vo)
+            <table>
             
-            <a href="/home/member_update" class="add_b">编辑信息</a>
-            <div class="mem_t" style="color: orange; font-size: 18">账号资料：</div>
-            <table border="0" class="acc_tab" style="width:870px;" cellspacing="0" cellpadding="0">
+            <div class="mem_tit">
+                <input type="hidden" name="id" value="{{$vo->id}}">
                 <tr>
-                <td class="td_l">用户账号：  </td>
-                <td>{{$res['users_account']}}</td>
-              </tr>
-              <tr>
-                <td class="td_l">用户名称： </td>
-                <td>{{$res['users_name']}}</td>
-              </tr>
-              <tr>
-                <td class="td_l">用户性别： </td>
-                @if (($res['sex']) == 1)
-                <td>男</td>
-                @elseif(($res['sex']) == 0)
-                <td>女</td>
-                @else
-                <td>保密</td>
-                @endif
-              </tr>
-              <tr>
-                <td class="td_l">用户年龄： </td>
-                <td>{{$res['age']}}</td>
-              </tr>
-              <tr>
-                <td class="td_l">手机号： </td>
-                <td>{{$res['phone']}}</td>
-              </tr>
-              <tr>
-                <td class="td_l">邮箱： </td>
-                <td>{{$res['email']}}</td>
-              </tr>
-              <tr>
-                <td class="td_l">出生年月： </td>
-                <td>{{$res['birthday']}}</td>
-              </tr>
-            </table>
-
+                    <td>用户名称：</td>
+                    <td><span style="font-size: 22px">{{$vo->users_name}}</span></td>
+                </tr>
+                <tr>
+                    <td>用户电话：</td>
+                    <td><span style="font-size: 20px">{{$vo->phone}}</span></td>
+                </tr>
+                <tr>
+                    <td>账号昵称：&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="" name="nick" style="width: 530px;height: 30px;" value="{{$vo->nick}}"></td>
+                </tr>
+                <tr>
+                    <td>邮箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="" name="email" value="{{$vo->email}}" style="width: 530px;height: 30px;"></td>
+                </tr>
+                <tr>
+                    <td>年龄：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="" name="age" value="{{$vo->age}}" style="width: 530px;height: 30px;"></td>
+                </tr>
+                <tr>
+                    <td>性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <select name="sex" style="width: 100px">
+                            <option value="1">男</option>
+                            <option value="0">女</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>出生年月：&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="" name="birthday" value="{{$vo->birthday}}" style="width: 530px;height: 30px;"></td>
+                </tr>
+                
+                
+                <tr>
+                    <td></td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="reset" name="" value="重置">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="submit" name="" value="修改">
+                    </td>
+                </tr>
+            </div>
+			</table>
             
+            @endforeach
+            </form>
+
         </div>
     </div>
-    
 	<!--End 用户中心 End--> 
     <!--Begin Footer Begin -->
     <div class="b_btm_bg b_btm_c">
